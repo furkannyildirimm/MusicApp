@@ -12,7 +12,6 @@ protocol SplashPresenterProtocol: AnyObject {
     func viewDidAppear()
 }
 
-
 final class SplashPresenter: SplashPresenterProtocol {
     
     unowned var view: SplashViewControllerProtocol!
@@ -29,11 +28,9 @@ final class SplashPresenter: SplashPresenterProtocol {
         self.interactor = interactor
     }
     
-    
     func viewDidAppear() {
         interactor.checkInternetConnection()
     }
-    
 }
 
 extension SplashPresenter: SplashInteractorOutputProtocol {
@@ -48,6 +45,4 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
             view.noInternetConnection()
         }
     }
-    
-    
 }

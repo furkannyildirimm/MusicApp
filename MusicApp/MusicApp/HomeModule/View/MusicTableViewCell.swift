@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol MusicCellProtocol: AnyObject {
-    func setImage(_ image: UIImage)
+    func setImage(_ url: URL)
     func setTitle(_ text: String)
     func setArtist(_ text: String)
     func setCollection(_ text: String)
@@ -29,7 +30,9 @@ final class MusicTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        UIView.animate(withDuration: 0.5) {
+            self.center.x += 100
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,10 +46,10 @@ final class MusicTableViewCell: UITableViewCell {
 extension MusicTableViewCell: MusicCellProtocol {
     
     
-    func setImage(_ image: UIImage) {
+    func setImage(_ url: URL) {
         DispatchQueue.main.async {
-            self.musicImage.image = image
-        }
+                self.musicImage.sd_setImage(with: url, completed: nil)
+            }
     }
     
     func setTitle(_ text: String) {

@@ -13,6 +13,7 @@ protocol HomePresenterProtocol: AnyObject {
     func numberOfItems() -> Int
     func music(_ index: Int) -> Music? // ???
     func didSelectRowAt(index: Int)
+    func searchMusic(with keyword: String)
 }
 
 
@@ -35,6 +36,12 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
+    func searchMusic(with keyword: String) {
+        view.showLoadingView()
+        interactor.fetchMusic(with: keyword)
+    }
+    
     func viewDidLoad() {
         view.setupTableView()
         fetchMusic() // sadsdadsadsadsasda
@@ -54,8 +61,8 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     private func fetchMusic() {
-        view.showLoadingView()
-        interactor.fetchMusic()
+        //view.showLoadingView()
+        //interactor.fetchMusic()
     }
 }
 

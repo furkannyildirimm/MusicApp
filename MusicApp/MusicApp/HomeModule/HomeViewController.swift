@@ -24,7 +24,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBar.delegate = self
         presenter.viewDidLoad()
     }
 }
@@ -47,11 +47,11 @@ extension HomeViewController: HomeViewControllerProtocol {
     }
     
     func showLoadingView() {
-        showLoading()
+        //showLoading()
     }
     
     func hideLoadingView() {
-        hideLoading()
+        //hideLoading()
     }
 }
 
@@ -87,3 +87,10 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            // Metin değişikliği algılandığında çağrılacak yöntem
+            presenter.searchMusic(with: searchText)
+        }
+}

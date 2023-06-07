@@ -11,7 +11,7 @@ import MusicAPI
 typealias MusicSourcesResult = Result<[Music], Error>
 
 protocol HomeInteractorProtocol: AnyObject {
-    func fetchMusic()
+    func fetchMusic(with keyword: String)
 }
 
 protocol HomeInteractorOutputProtocol {
@@ -26,8 +26,8 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeInteractorProtocol {
     
-    func fetchMusic() {
-        musicService.fetchMusicEntries(word: "tarkan") { [weak self] result in
+    func fetchMusic(with keyword: String) {
+        musicService.fetchMusicEntries(word: keyword) { [weak self] result in
             guard let self else { return }
             self.output?.fetchMusicOutput(result)
         }

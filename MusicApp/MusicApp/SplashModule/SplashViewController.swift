@@ -26,7 +26,5 @@ extension SplashViewController: SplashViewControllerProtocol {
     
     func noInternetConnection() {
         showAlert("Error", "No internet")
-        
     }
-    
 }

@@ -33,8 +33,9 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
         view?.setTitle(music.trackName ?? "")
         view?.setArtist(music.artistName ?? "")
         view?.setCollection(music.collectionName ?? "")
-        
-        
+        if let imageURLString = music.artworkUrl100,
+           let imageURL = URL(string: imageURLString) {
+            view?.setImage(imageURL)
+        }
     }
-    
 }
