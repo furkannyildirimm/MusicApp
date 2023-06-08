@@ -21,6 +21,7 @@ final class MusicTableViewCell: UITableViewCell {
     @IBOutlet weak var musicTitle: UILabel!
     @IBOutlet weak var artistTitle: UILabel!
     @IBOutlet weak var collectionTitle: UILabel!
+    @IBOutlet weak var playPauseButton: UIButton!
     
     var cellPresenter: MusicCellPresenterProtocol! {
         didSet {
@@ -37,10 +38,7 @@ final class MusicTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }
 
 extension MusicTableViewCell: MusicCellProtocol {

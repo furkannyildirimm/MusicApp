@@ -25,5 +25,4 @@ extension SplashInteractor: SplashInteractorProtocol {
         let internetStatus = Reachability.isConnectedToNetwork()
         self.output?.internetConnection(status: internetStatus)
     }
-   
 }

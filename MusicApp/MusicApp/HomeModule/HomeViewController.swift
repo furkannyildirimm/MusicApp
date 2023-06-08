@@ -16,11 +16,14 @@ protocol HomeViewControllerProtocol: AnyObject {
 }
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: HomePresenterProtocol!
+    
+    private var searchTimer: Timer?
+    private let searchDelay: TimeInterval = 0.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +50,11 @@ extension HomeViewController: HomeViewControllerProtocol {
     }
     
     func showLoadingView() {
-        //showLoading()
+        showLoading()
     }
     
     func hideLoadingView() {
-        //hideLoading()
+        hideLoading()
     }
 }
 
@@ -90,7 +93,18 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            // Metin değişikliği algılandığında çağrılacak yöntem
-            presenter.searchMusic(with: searchText)
+        searchTimer?.invalidate()
+        searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelay, repeats: false, block: { [weak self] _ in
+            self?.performSearch(with: searchText)
+        })
+    }
+    
+    private func performSearch(with keyword: String) {
+        guard !keyword.isEmpty else {
+            presenter.clearSearchResults()
+            return
         }
+        presenter.searchMusic(with: keyword)
+    }
 }
+

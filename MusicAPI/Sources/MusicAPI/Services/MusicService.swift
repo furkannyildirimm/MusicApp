@@ -17,7 +17,9 @@ public class MusicService: MusicServiceProtocol {
     public init() {}
     
     public func fetchMusicEntries(word: String, completion: @escaping (Result<[Music], Error>) -> Void) {
-        let urlString = "https://itunes.apple.com/search?term=\(word)&country=tr&entity=song&attribute=mixTerm"
+        
+        let encodedTerm = word.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "https://itunes.apple.com/search?term=\(encodedTerm)&country=tr&entity=song&attribute=mixTerm"
         AF.request(urlString).responseData { response in
             switch response.result {
                 
@@ -36,6 +38,8 @@ public class MusicService: MusicServiceProtocol {
         }
     }
 }
+
+
 
 
 //public func fetchMusicEntries(word: String, completion: @escaping (Result<[Music], Error>) -> Void) {

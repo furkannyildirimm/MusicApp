@@ -14,6 +14,7 @@ protocol HomePresenterProtocol: AnyObject {
     func music(_ index: Int) -> Music? // ???
     func didSelectRowAt(index: Int)
     func searchMusic(with keyword: String)
+    func clearSearchResults()
 }
 
 
@@ -36,6 +37,12 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
+    func clearSearchResults() {
+        music = [] // Arama sonuçlarını temizle
+        view.reloadData()
+    }
+    
     
     func searchMusic(with keyword: String) {
         view.showLoadingView()
