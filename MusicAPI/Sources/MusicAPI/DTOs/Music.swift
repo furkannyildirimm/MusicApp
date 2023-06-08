@@ -20,4 +20,5 @@ public struct Music: Decodable {
     public let previewUrl: String?
     public let artworkUrl30, artworkUrl60, artworkUrl100: String?
     public let collectionPrice, trackPrice: Double?
+    public let primaryGenreName: String?
 }

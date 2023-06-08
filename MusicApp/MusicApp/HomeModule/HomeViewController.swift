@@ -67,6 +67,8 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(with: MusicTableViewCell.self, for: indexPath)
         
+        cell.selectionStyle = .none
+        
         if let music = presenter.music(indexPath.row) {
             cell.cellPresenter = MusicCellPresenter(view: cell, music: music)
         }

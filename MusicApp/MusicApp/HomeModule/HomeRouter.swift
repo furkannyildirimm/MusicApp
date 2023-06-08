@@ -36,7 +36,12 @@ final class HomeRouter {
 
 extension HomeRouter: HomeRouterProtocol {
     func navigate(_ route: HomeRoutes) {
-        
+        switch route {
+        case .detail(let source):
+            let detailVC = DetaillRouter.createModule()
+            detailVC.source = source
+            viewController?.navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
     
     

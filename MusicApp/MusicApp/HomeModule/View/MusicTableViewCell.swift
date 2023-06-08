@@ -29,6 +29,8 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func playPauseActionButton(_ sender: UIButton) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         UIView.animate(withDuration: 0.5) {

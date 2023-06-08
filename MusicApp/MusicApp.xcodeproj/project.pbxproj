@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		581FED3F2A31E14300D8B857 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED3E2A31E14300D8B857 /* DetailInteractor.swift */; };
+		581FED412A31E15700D8B857 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED402A31E15700D8B857 /* DetailPresenter.swift */; };
+		581FED432A31E16500D8B857 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED422A31E16500D8B857 /* DetailRouter.swift */; };
+		581FED462A31E5B200D8B857 /* DetaillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED442A31E5B200D8B857 /* DetaillViewController.swift */; };
+		581FED472A31E5B200D8B857 /* DetaillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581FED452A31E5B200D8B857 /* DetaillViewController.xib */; };
 		58C7E3182A2F405D005C41B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3172A2F405D005C41B1 /* AppDelegate.swift */; };
 		58C7E31A2A2F405D005C41B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */; };
 		58C7E3222A2F405D005C41B1 /* MusicApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3202A2F405D005C41B1 /* MusicApp.xcdatamodeld */; };
@@ -37,7 +42,6 @@
 		58C7E37F2A2FD047005C41B1 /* UITableView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E37E2A2FD047005C41B1 /* UITableView + Extensions.swift */; };
 		58C7E3812A2FD9F0005C41B1 /* MusicCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3802A2FD9F0005C41B1 /* MusicCellPresenter.swift */; };
 		58C7E3842A2FDE42005C41B1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 58C7E3832A2FDE42005C41B1 /* SDWebImage */; };
-		58C7E3862A2FE8B8005C41B1 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3852A2FE8B8005C41B1 /* testViewController.swift */; };
 		58E9D5382A30A30400648FCA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9D5372A30A30400648FCA /* CardView.swift */; };
 		58E9D53A2A30A33D00648FCA /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9D5392A30A33D00648FCA /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		581FED3E2A31E14300D8B857 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		581FED402A31E15700D8B857 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		581FED422A31E16500D8B857 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		581FED442A31E5B200D8B857 /* DetaillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaillViewController.swift; sourceTree = "<group>"; };
+		581FED452A31E5B200D8B857 /* DetaillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetaillViewController.xib; sourceTree = "<group>"; };
 		58C7E3142A2F405D005C41B1 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C7E3172A2F405D005C41B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +102,6 @@
 		58C7E37C2A2FD02B005C41B1 /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
 		58C7E37E2A2FD047005C41B1 /* UITableView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extensions.swift"; sourceTree = "<group>"; };
 		58C7E3802A2FD9F0005C41B1 /* MusicCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellPresenter.swift; sourceTree = "<group>"; };
-		58C7E3852A2FE8B8005C41B1 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		58E9D5372A30A30400648FCA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		58E9D5392A30A33D00648FCA /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +133,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		581FED392A31E07300D8B857 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				581FED3E2A31E14300D8B857 /* DetailInteractor.swift */,
+				581FED402A31E15700D8B857 /* DetailPresenter.swift */,
+				581FED422A31E16500D8B857 /* DetailRouter.swift */,
+				581FED442A31E5B200D8B857 /* DetaillViewController.swift */,
+				581FED452A31E5B200D8B857 /* DetaillViewController.xib */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
 		58C7E30B2A2F405D005C41B1 = {
 			isa = PBXGroup;
 			children = (
@@ -151,9 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				58C7E3172A2F405D005C41B1 /* AppDelegate.swift */,
-				58C7E3852A2FE8B8005C41B1 /* testViewController.swift */,
 				58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */,
 				58C7E34E2A2FB172005C41B1 /* Reachability.swift */,
+				581FED392A31E07300D8B857 /* DetailModule */,
 				58C7E3502A2FB5E6005C41B1 /* SplashModule */,
 				58C7E35B2A2FB80A005C41B1 /* BaseModule */,
 				58C7E3622A2FBF1B005C41B1 /* HomeModule */,
@@ -374,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581FED472A31E5B200D8B857 /* DetaillViewController.xib in Resources */,
 				58C7E3272A2F405E005C41B1 /* LaunchScreen.storyboard in Resources */,
 				58C7E3242A2F405E005C41B1 /* Assets.xcassets in Resources */,
 				58C7E3662A2FBF8E005C41B1 /* HomeViewController.xib in Resources */,
@@ -404,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58C7E3562A2FB654005C41B1 /* SplashInteractor.swift in Sources */,
+				581FED3F2A31E14300D8B857 /* DetailInteractor.swift in Sources */,
 				58E9D53A2A30A33D00648FCA /* UIView + Extension.swift in Sources */,
 				58C7E37D2A2FD02B005C41B1 /* Collection + Extension.swift in Sources */,
 				58C7E3182A2F405D005C41B1 /* AppDelegate.swift in Sources */,
@@ -413,17 +435,19 @@
 				58C7E37B2A2FCF81005C41B1 /* ClassName + Extension.swift in Sources */,
 				58C7E3762A2FC7D0005C41B1 /* LoadingView.swift in Sources */,
 				58C7E3812A2FD9F0005C41B1 /* MusicCellPresenter.swift in Sources */,
-				58C7E3862A2FE8B8005C41B1 /* testViewController.swift in Sources */,
 				58C7E31A2A2F405D005C41B1 /* SceneDelegate.swift in Sources */,
 				58C7E35D2A2FB82D005C41B1 /* BaseViewController.swift in Sources */,
 				58C7E34F2A2FB172005C41B1 /* Reachability.swift in Sources */,
+				581FED432A31E16500D8B857 /* DetailRouter.swift in Sources */,
 				58C7E3652A2FBF8E005C41B1 /* HomeViewController.swift in Sources */,
 				58C7E36C2A2FC027005C41B1 /* HomeRouter.swift in Sources */,
 				58C7E36A2A2FBFD6005C41B1 /* HomePresenter.swift in Sources */,
 				58C7E35A2A2FB68D005C41B1 /* SplashRouter.swift in Sources */,
 				58C7E3702A2FC456005C41B1 /* MusicTableViewCell.swift in Sources */,
 				58C7E3222A2F405D005C41B1 /* MusicApp.xcdatamodeld in Sources */,
+				581FED462A31E5B200D8B857 /* DetaillViewController.swift in Sources */,
 				58C7E37F2A2FD047005C41B1 /* UITableView + Extensions.swift in Sources */,
+				581FED412A31E15700D8B857 /* DetailPresenter.swift in Sources */,
 				58E9D5382A30A30400648FCA /* CardView.swift in Sources */,
 				58C7E3602A2FBC16005C41B1 /* SplashViewController.swift in Sources */,
 			);
