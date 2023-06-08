@@ -32,6 +32,7 @@ class DetaillViewController: BaseViewController {
     @IBOutlet weak var primaryName: UILabel!
     @IBOutlet weak var trackPrice: UILabel!
     @IBOutlet weak var collectionPrice: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,10 @@ class DetaillViewController: BaseViewController {
         presenter.viewDidLoad()
 
     }
+    
+    @IBAction func playButton(_ sender: Any) {
+    }
+    
 }
 
 extension DetaillViewController: DetaillViewControllerProtocol {

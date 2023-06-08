@@ -28,9 +28,11 @@ final class MusicTableViewCell: UITableViewCell {
             cellPresenter.load()
         }
     }
+    private var isPlaying: Bool = false
     
     @IBAction func playPauseActionButton(_ sender: UIButton) {
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         UIView.animate(withDuration: 0.5) {
@@ -38,9 +40,17 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction func playPauseButton(_ sender: Any) {
+        cellPresenter.playPauseButtonTapped()
+        isPlaying.toggle()
+        updatePlayPauseButtonImage()
     }
+    
+    private func updatePlayPauseButtonImage() {
+            let imageName = isPlaying ? "pauseButtonCell" : "playButtonCell"
+            let buttonImage = UIImage(named: imageName)
+            playPauseButton.setImage(buttonImage, for: .normal)
+        }
 }
 
 extension MusicTableViewCell: MusicCellProtocol {

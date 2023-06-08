@@ -13,6 +13,7 @@
                 <outlet property="collectionName" destination="UCB-KV-v0H" id="gBg-tb-zWR"/>
                 <outlet property="collectionPrice" destination="BTk-yy-njM" id="431-Mb-Ehw"/>
                 <outlet property="musicImage" destination="wg5-Y5-ff4" id="Ddc-Iu-7VW"/>
+                <outlet property="playButton" destination="ovK-bd-PUt" id="Ms9-yE-vG3"/>
                 <outlet property="primaryName" destination="onf-GZ-d1D" id="Qml-wb-kxt"/>
                 <outlet property="trackName" destination="KCW-Qp-m2w" id="7ys-5c-Hkg"/>
                 <outlet property="trackPrice" destination="GeP-xz-b3V" id="mtm-gm-aPZ"/>
@@ -152,6 +153,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="playButtonDetail"/>
+                    <connections>
+                        <action selector="playButton:" destination="-1" eventType="touchUpInside" id="Yyz-66-nqU"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

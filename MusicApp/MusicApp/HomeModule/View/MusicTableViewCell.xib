@@ -80,9 +80,10 @@
                                                     <constraint firstAttribute="width" constant="75" id="XrQ-vw-dZ4"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="playButtunCell"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="playButtonCell"/>
                                                 <connections>
                                                     <action selector="playPauseActionButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="P0d-LG-ZvT"/>
+                                                    <action selector="playPauseButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xvw-pp-I8N"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -120,7 +121,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="playButtunCell" width="50" height="50"/>
+        <image name="playButtonCell" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

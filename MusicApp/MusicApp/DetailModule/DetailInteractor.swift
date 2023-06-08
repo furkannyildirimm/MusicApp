@@ -7,7 +7,6 @@
 
 import Foundation
 
-//Detay sayfasında veri çekilmeyecekse bu protocol tanımlanmayabilir
 protocol DetailInteractorProtocol {
     
 }
