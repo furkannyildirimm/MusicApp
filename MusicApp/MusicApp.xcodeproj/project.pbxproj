@@ -13,6 +13,7 @@
 		581FED462A31E5B200D8B857 /* DetaillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED442A31E5B200D8B857 /* DetaillViewController.swift */; };
 		581FED472A31E5B200D8B857 /* DetaillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581FED452A31E5B200D8B857 /* DetaillViewController.xib */; };
 		581FED492A334B1500D8B857 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED482A334B1500D8B857 /* AudioManager.swift */; };
+		581FED4B2A33CBB800D8B857 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */; };
 		58C7E3182A2F405D005C41B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3172A2F405D005C41B1 /* AppDelegate.swift */; };
 		58C7E31A2A2F405D005C41B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */; };
 		58C7E3222A2F405D005C41B1 /* MusicApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3202A2F405D005C41B1 /* MusicApp.xcdatamodeld */; };
@@ -71,6 +72,7 @@
 		581FED442A31E5B200D8B857 /* DetaillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaillViewController.swift; sourceTree = "<group>"; };
 		581FED452A31E5B200D8B857 /* DetaillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetaillViewController.xib; sourceTree = "<group>"; };
 		581FED482A334B1500D8B857 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		58C7E3142A2F405D005C41B1 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C7E3172A2F405D005C41B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				58C7E3772A2FC807005C41B1 /* CustomView */,
 				58C7E3742A2FC78B005C41B1 /* Utils */,
 				58C7E3232A2F405E005C41B1 /* Assets.xcassets */,
+				581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */,
 				58C7E3792A2FCF62005C41B1 /* Extension */,
 				58C7E3252A2F405E005C41B1 /* LaunchScreen.storyboard */,
 				58C7E3282A2F405E005C41B1 /* Info.plist */,
@@ -452,6 +455,7 @@
 				58C7E37F2A2FD047005C41B1 /* UITableView + Extensions.swift in Sources */,
 				581FED412A31E15700D8B857 /* DetailPresenter.swift in Sources */,
 				581FED492A334B1500D8B857 /* AudioManager.swift in Sources */,
+				581FED4B2A33CBB800D8B857 /* CustomBackButton.swift in Sources */,
 				58E9D5382A30A30400648FCA /* CardView.swift in Sources */,
 				58C7E3602A2FBC16005C41B1 /* SplashViewController.swift in Sources */,
 			);

@@ -36,9 +36,9 @@ final class MusicTableViewCell: UITableViewCell {
             self.center.x += 100
         }
     }
+    
     @IBAction func playButtonTapped(_ sender: Any) {
         cellPresenter.playButtonTapped()
-        
         playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
     }
     
@@ -49,9 +49,7 @@ final class MusicTableViewCell: UITableViewCell {
             playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
         } else {
             playButton.setImage(UIImage(named: "playButtonCell"), for: .normal)
-            
         }
-        
     }
 }
 

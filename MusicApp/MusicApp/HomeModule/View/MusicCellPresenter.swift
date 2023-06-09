@@ -58,5 +58,4 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
             audioManager.play(url: previewURL, songName: music.trackName ?? "")
         }
     }
-    
 }

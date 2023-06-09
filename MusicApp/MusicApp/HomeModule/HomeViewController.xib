@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Nsa-Zi-QxG">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Artist, Song..." translatesAutoresizingMaskIntoConstraints="NO" id="Nsa-Zi-QxG">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -27,7 +27,7 @@
                     </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EfN-1m-Oct">
-                    <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                    <rect key="frame" x="0.0" y="115" width="393" height="737"/>
                     <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="HDd-NB-QXz"/>
@@ -42,9 +42,9 @@
                 <constraint firstItem="EfN-1m-Oct" firstAttribute="top" secondItem="Nsa-Zi-QxG" secondAttribute="bottom" id="8nO-Qt-nsu"/>
                 <constraint firstItem="Nsa-Zi-QxG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M1Q-I6-0mV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EfN-1m-Oct" secondAttribute="trailing" id="Nlt-ZN-r6m"/>
+                <constraint firstAttribute="bottom" secondItem="EfN-1m-Oct" secondAttribute="bottom" id="RuY-mx-NDS"/>
                 <constraint firstItem="Nsa-Zi-QxG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YtE-Dm-Iex"/>
                 <constraint firstItem="EfN-1m-Oct" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cY7-h1-c2Z"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EfN-1m-Oct" secondAttribute="bottom" id="xjy-XS-wbS"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

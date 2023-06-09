@@ -10,6 +10,7 @@ import MusicAPI
 
 protocol DetaillPresenterProtocol {
     func viewDidLoad()
+    func playAudio()
 }
 
 final class DetaillPresenter {
@@ -29,6 +30,23 @@ final class DetaillPresenter {
 }
 
 extension DetaillPresenter: DetaillPresenterProtocol {
+    
+    func playAudio() {
+        guard let music = view.getSource() else { return }
+        guard let previewURLString = music.previewUrl,
+              let previewURL = URL(string: previewURLString) else {
+            return
+        }
+        
+        let audioManager = AudioManager.shared
+        
+        if audioManager.isPlaying  {
+            audioManager.stop()
+        } else {
+            audioManager.play(url: previewURL, songName: music.trackName ?? "")
+        }
+    }
+    
     func viewDidLoad() {
         
         guard let music = view.getSource() else { return }

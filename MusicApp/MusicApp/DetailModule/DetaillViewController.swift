@@ -17,6 +17,7 @@ protocol DetaillViewControllerProtocol: AnyObject {
     func setCollectionPrice(_ num: Double)
     func setMusicImage(_ url: URL)
     func getSource() -> Music?
+    func playAudio()
 }
 
 class DetaillViewController: BaseViewController {
@@ -36,17 +37,29 @@ class DetaillViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addCustomBackButton()
         presenter.viewDidLoad()
 
     }
     
     @IBAction func playButton(_ sender: Any) {
+        presenter.playAudio()
+        playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonDetail" : "playButtonDetail"), for: .normal)
     }
     
+    private func addCustomBackButton() {
+        let backButton = CustomBackButton()
+        let backButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backButtonItem
+    }
 }
 
 extension DetaillViewController: DetaillViewControllerProtocol {
+    
+    func playAudio() {
+        presenter.playAudio()
+    }
+    
     func setArtistName(_ text: String) {
         artistName.text = text
     }

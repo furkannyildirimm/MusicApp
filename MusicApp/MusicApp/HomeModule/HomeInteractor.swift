@@ -32,5 +32,4 @@ extension HomeInteractor: HomeInteractorProtocol {
             self.output?.fetchMusicOutput(result)
         }
     }
-    
 }
