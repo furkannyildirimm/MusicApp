@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import AVFoundation
 
 protocol MusicCellProtocol: AnyObject {
     func setImage(_ url: URL)
@@ -16,21 +17,17 @@ protocol MusicCellProtocol: AnyObject {
 }
 
 final class MusicTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var musicImage: UIImageView!
     @IBOutlet weak var musicTitle: UILabel!
     @IBOutlet weak var artistTitle: UILabel!
     @IBOutlet weak var collectionTitle: UILabel!
-    @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
     
     var cellPresenter: MusicCellPresenterProtocol! {
         didSet {
             cellPresenter.load()
         }
-    }
-    private var isPlaying: Bool = false
-    
-    @IBAction func playPauseActionButton(_ sender: UIButton) {
     }
     
     override func awakeFromNib() {
@@ -39,18 +36,23 @@ final class MusicTableViewCell: UITableViewCell {
             self.center.x += 100
         }
     }
-
-    @IBAction func playPauseButton(_ sender: Any) {
-        cellPresenter.playPauseButtonTapped()
-        isPlaying.toggle()
-        updatePlayPauseButtonImage()
+    @IBAction func playButtonTapped(_ sender: Any) {
+        cellPresenter.playButtonTapped()
+        
+        playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
     }
     
-    private func updatePlayPauseButtonImage() {
-            let imageName = isPlaying ? "pauseButtonCell" : "playButtonCell"
-            let buttonImage = UIImage(named: imageName)
-            playPauseButton.setImage(buttonImage, for: .normal)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        AudioManager.shared.stop()
+        if AudioManager.shared.songName == musicTitle.text{
+            playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
+        } else {
+            playButton.setImage(UIImage(named: "playButtonCell"), for: .normal)
+            
         }
+        
+    }
 }
 
 extension MusicTableViewCell: MusicCellProtocol {
@@ -58,8 +60,8 @@ extension MusicTableViewCell: MusicCellProtocol {
     
     func setImage(_ url: URL) {
         DispatchQueue.main.async {
-                self.musicImage.sd_setImage(with: url, completed: nil)
-            }
+            self.musicImage.sd_setImage(with: url, completed: nil)
+        }
     }
     
     func setTitle(_ text: String) {

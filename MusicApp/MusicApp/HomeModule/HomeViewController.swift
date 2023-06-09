@@ -30,6 +30,11 @@ class HomeViewController: BaseViewController {
         searchBar.delegate = self
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
@@ -68,7 +73,6 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(with: MusicTableViewCell.self, for: indexPath)
         
         cell.selectionStyle = .none
-        
         if let music = presenter.music(indexPath.row) {
             cell.cellPresenter = MusicCellPresenter(view: cell, music: music)
         }
@@ -81,6 +85,8 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRowAt(index: indexPath.row)
+        AudioManager.shared.stop()
+        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

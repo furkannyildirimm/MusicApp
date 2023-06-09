@@ -82,8 +82,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="playButtonCell"/>
                                                 <connections>
-                                                    <action selector="playPauseActionButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="P0d-LG-ZvT"/>
-                                                    <action selector="playPauseButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xvw-pp-I8N"/>
+                                                    <action selector="playButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VMq-mR-kmY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -115,7 +114,7 @@
                 <outlet property="collectionTitle" destination="3Om-hy-Qjj" id="SNq-3x-gBd"/>
                 <outlet property="musicImage" destination="HZQ-oY-ipp" id="GAt-lt-9yB"/>
                 <outlet property="musicTitle" destination="4b5-2s-JYF" id="e0U-J6-VmF"/>
-                <outlet property="playPauseButton" destination="qau-ld-gwP" id="o4N-bk-YnK"/>
+                <outlet property="playButton" destination="qau-ld-gwP" id="toR-PX-afp"/>
             </connections>
             <point key="canvasLocation" x="203.0534351145038" y="23.943661971830988"/>
         </tableViewCell>
