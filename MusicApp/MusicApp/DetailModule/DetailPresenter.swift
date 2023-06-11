@@ -11,6 +11,8 @@ import MusicAPI
 protocol DetaillPresenterProtocol {
     func viewDidLoad()
     func playAudio()
+    func saveMusicDetails(music: MusicDetails)
+    func deleteMusicDetails(music: MusicDetails)
 }
 
 final class DetaillPresenter {
@@ -30,6 +32,15 @@ final class DetaillPresenter {
 }
 
 extension DetaillPresenter: DetaillPresenterProtocol {
+    func saveMusicDetails(music: MusicDetails) {
+        CoreDataManager.shared.saveMusic(music: music)
+    }
+    
+    func deleteMusicDetails(music: MusicDetails) {
+        CoreDataManager.shared.deleteMusic(music: music)
+
+    }
+    
     
     func playAudio() {
         guard let music = view.getSource() else { return }

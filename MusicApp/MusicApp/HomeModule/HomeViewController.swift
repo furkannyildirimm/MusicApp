@@ -29,11 +29,17 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         presenter.viewDidLoad()
+        addCustomRightButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    private func addCustomRightButton() {
+        let rightButton = CustomRightButton()
+        let rightButtonItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = rightButtonItem
     }
 }
 
