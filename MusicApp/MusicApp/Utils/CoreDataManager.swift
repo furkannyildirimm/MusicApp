@@ -13,7 +13,6 @@ struct MusicDetails {
     var collectionName: String
     var trackName: String
     var artworkUrl100: String
-    
 }
 
 class CoreDataManager {

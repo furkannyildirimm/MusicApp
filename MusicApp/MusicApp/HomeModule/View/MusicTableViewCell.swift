@@ -9,11 +9,16 @@ import UIKit
 import SDWebImage
 import AVFoundation
 
+protocol MusicCellDelegate: AnyObject {
+    func cellReloadData()
+}
+
 protocol MusicCellProtocol: AnyObject {
     func setImage(_ url: URL)
     func setTitle(_ text: String)
     func setArtist(_ text: String)
     func setCollection(_ text: String)
+    func cellReloadData()
 }
 
 final class MusicTableViewCell: UITableViewCell {
@@ -30,10 +35,20 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
     
+    weak var delegate: MusicCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         UIView.animate(withDuration: 0.5) {
             self.center.x += 100
+        }
+    }
+    
+    func configureImage(_ trackName: String){
+        if AudioManager.shared.isPlaying && AudioManager.shared.songName == trackName{
+            playButton.setImage(UIImage(named:"pauseButtonCell"), for: .normal)
+        }else{
+            playButton.setImage(UIImage(named: "playButtonCell"), for: .normal)
         }
     }
     
@@ -44,7 +59,7 @@ final class MusicTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        AudioManager.shared.stop()
+//        AudioManager.shared.stop()
         if AudioManager.shared.songName == musicTitle.text{
             playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
         } else {
@@ -54,6 +69,10 @@ final class MusicTableViewCell: UITableViewCell {
 }
 
 extension MusicTableViewCell: MusicCellProtocol {
+    func cellReloadData() {
+        delegate?.cellReloadData()
+    }
+    
     
     
     func setImage(_ url: URL) {

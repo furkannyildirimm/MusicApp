@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouritesViewController: UIViewController {
+class FavouritesViewController: BaseViewController {
     
     @IBOutlet weak var favouritesTableView: UITableView!
     
@@ -16,8 +16,8 @@ class FavouritesViewController: UIViewController {
         favouritesTableView.register(cellType: FavouriteCell.self)
         CoreDataManager.shared.fetchMusic()
         addCustomBackButton()
-        
     }
+    
     private func addCustomBackButton() {
         let backButton = CustomBackButton()
         let backButtonItem = UIBarButtonItem(customView: backButton)
@@ -46,6 +46,10 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
 }
 

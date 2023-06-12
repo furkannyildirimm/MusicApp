@@ -77,11 +77,12 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(with: MusicTableViewCell.self, for: indexPath)
-        
         cell.selectionStyle = .none
+        cell.delegate = self
         if let music = presenter.music(indexPath.row) {
             cell.cellPresenter = MusicCellPresenter(view: cell, music: music)
         }
+        cell.configureImage(presenter.music(indexPath.row)?.trackName ?? "")
         return cell
     }
 }
@@ -122,3 +123,8 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
+extension HomeViewController: MusicCellDelegate {
+    func cellReloadData(){
+        tableView.reloadData()
+    }
+}

@@ -56,6 +56,8 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
             audioManager.stop()
         } else {
             audioManager.play(url: previewURL, songName: music.trackName ?? "")
+            view?.cellReloadData()
         }
+        
     }
 }
