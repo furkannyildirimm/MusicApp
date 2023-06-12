@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "playButtonCell.png",
+      "filename" : "emptyView.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -23,31 +23,11 @@ class CardView: UIView {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = .zero
         layer.cornerRadius = 10
-        layer.shadowOpacity = 0.1
+        layer.shadowOpacity = 0.2
         layer.shadowRadius = 10
+        layer.borderWidth = 0.1
+        layer.borderColor = UIColor.black.cgColor
         cornerRadius = 10
     }
 }
 
-//class CardViewTwo: CardView {
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//        setupShadow()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//
-//        setupShadow()
-//    }
-//
-//     private func setupShadow() {
-//        layer.shadowColor = UIColor.green.cgColor
-//        layer.shadowOffset = CGSize(width: 4, height: 4)
-//        layer.shadowOpacity = 0.5
-//        layer.shadowRadius = 10
-//        layer.cornerRadius = 15
-//    }
-//}

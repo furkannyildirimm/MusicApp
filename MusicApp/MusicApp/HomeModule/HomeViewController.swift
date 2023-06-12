@@ -21,7 +21,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: HomePresenterProtocol!
-    
+    private var isEmpty: Bool = true
+    private var emptyStateImageView: UIImageView!
     private var searchTimer: Timer?
     private let searchDelay: TimeInterval = 0.5
     
@@ -30,6 +31,7 @@ class HomeViewController: BaseViewController {
         searchBar.delegate = self
         presenter.viewDidLoad()
         addCustomRightButton()
+        emptyView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +42,20 @@ class HomeViewController: BaseViewController {
         let rightButton = CustomRightButton()
         let rightButtonItem = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightButtonItem
+    }
+    private func emptyView(){
+        emptyStateImageView = UIImageView(image: UIImage(named: "emptyView"))
+        emptyStateImageView.contentMode = .center
+        emptyStateImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyStateImageView)
+        
+        NSLayoutConstraint.activate([
+            emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -53,6 +69,7 @@ extension HomeViewController: HomeViewControllerProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.tableView.reloadData()
+            self.checkEmptyState()
         }
     }
     
@@ -62,16 +79,27 @@ extension HomeViewController: HomeViewControllerProtocol {
     
     func showLoadingView() {
         showLoading()
+        checkEmptyState()
     }
     
     func hideLoadingView() {
         hideLoading()
+        checkEmptyState()
+    }
+    
+    private func checkEmptyState() {
+        let isEmpty = presenter.numberOfItems() == 0
+        self.isEmpty = isEmpty
+        tableView.separatorStyle = isEmpty ? .none : .none
+        emptyStateImageView.isHidden = !isEmpty
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.numberOfItems()
+        let numberOfItems = presenter.numberOfItems()
+        checkEmptyState()
+        return numberOfItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,6 +147,7 @@ extension HomeViewController: UISearchBarDelegate {
             return
         }
         presenter.searchMusic(with: keyword)
+        checkEmptyState()
     }
 }
 
