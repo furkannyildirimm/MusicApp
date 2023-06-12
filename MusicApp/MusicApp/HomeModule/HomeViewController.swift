@@ -38,11 +38,18 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
     private func addCustomRightButton() {
         let rightButton = CustomRightButton()
         let rightButtonItem = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightButtonItem
+        rightButton.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
     }
+    
+    @objc private func rightButtonTapped() {
+        presenter.navigateToFavourites()
+    }
+    
     private func emptyView(){
         emptyStateImageView = UIImageView(image: UIImage(named: "emptyView"))
         emptyStateImageView.contentMode = .center

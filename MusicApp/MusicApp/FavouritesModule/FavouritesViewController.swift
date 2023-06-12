@@ -7,49 +7,61 @@
 
 import UIKit
 
-class FavouritesViewController: BaseViewController {
+protocol FavouritesView: AnyObject {
+    func updateTableView()
+}
+
+class FavouritesViewController: BaseViewController, FavouritesView {
     
     @IBOutlet weak var favouritesTableView: UITableView!
     
+    var presenter: FavouritesPresenterProtocol?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        favouritesTableView.register(cellType: FavouriteCell.self)
-        CoreDataManager.shared.fetchMusic()
-        addCustomBackButton()
-    }
+            super.viewDidLoad()
+            favouritesTableView.register(cellType: FavouriteCell.self)
+            presenter?.viewDidLoad()
+            addCustomBackButton()
+        }
+        
+        private func addCustomBackButton() {
+            let backButton = CustomBackButton()
+            let backButtonItem = UIBarButtonItem(customView: backButton)
+            navigationItem.leftBarButtonItem = backButtonItem
+        }
+        
+        func updateTableView() {
+            favouritesTableView.reloadData()
+        }
     
-    private func addCustomBackButton() {
-        let backButton = CustomBackButton()
-        let backButtonItem = UIBarButtonItem(customView: backButton)
-        navigationItem.leftBarButtonItem = backButtonItem
     }
-}
 
-extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CoreDataManager.shared.fetchMusic().count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: FavouriteCell.self, for: indexPath)
-        cell.selectionStyle = .none
-        let music = CoreDataManager.shared.fetchMusic()[indexPath.row]
-        cell.configure(with: music)
-        return cell
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let musicEntity = CoreDataManager.shared.fetchMusic()[indexPath.row]
-            let musicDetails = MusicDetails(artistName: musicEntity.artistName ?? "", collectionName: musicEntity.collectionName ?? "", trackName: musicEntity.trackName ?? "", artworkUrl100: musicEntity.artworkUrl100 ?? "")
-            CoreDataManager.shared.deleteMusic(music: musicDetails)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
+    extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return presenter?.numberOfMusicItems() ?? 0
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(with: FavouriteCell.self, for: indexPath)
+            cell.selectionStyle = .none
+            if let musicItem = presenter?.musicItem(at: indexPath.row) {
+                cell.configure(with: musicItem)
+            }
+            return cell
+        }
+        
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                presenter?.deleteMusicItem(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
+        }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 130
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
-    }
-}
+
 

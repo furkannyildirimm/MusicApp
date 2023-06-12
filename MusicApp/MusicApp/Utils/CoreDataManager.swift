@@ -8,14 +8,22 @@
 import Foundation
 import CoreData
 
+protocol CoreDataManagerProtocol {
+    func saveMusicDetails(music1: MusicDetails)
+    func deleteMusic(music: MusicDetails)
+    func checkIfMusicExists(music: MusicDetails) -> Bool
+    func fetchMusic() -> [MusicDetails]
+}
+
 struct MusicDetails {
     var artistName: String
     var collectionName: String
     var trackName: String
     var artworkUrl100: String
+    var trackId: Int
 }
 
-class CoreDataManager {
+class CoreDataManager: CoreDataManagerProtocol {
     static let shared = CoreDataManager()
     var isMusicSaved: Bool = false
 
@@ -32,20 +40,20 @@ class CoreDataManager {
         return container
     }()
     
-    func saveMusicDetails(music: MusicDetails) {
+    func saveMusicDetails(music1: MusicDetails) {
         if isMusicSaved {
             print("Bu müzik zaten kaydedilmiş.")
             return
         }
         
         let existingMusic = CoreDataManager.shared.fetchMusic().first { music in
-            return music.trackId == music.trackId
+            return music.trackId == music1.trackId
         }
         
         if existingMusic != nil {
             print("Bu müzik zaten kaydedilmiş.")
         } else {
-            CoreDataManager.shared.saveMusic(music: music)
+            CoreDataManager.shared.saveMusic(music: music1)
             isMusicSaved = true
             print("Müzik başarıyla kaydedildi.")
         }
@@ -95,17 +103,33 @@ class CoreDataManager {
         }
     }
     
-    func fetchMusic() -> [MusicEntity] {
+    func fetchMusic() -> [MusicDetails] {
+        
+        var musicEntity: [MusicDetails] = []
+        
         let context = persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<MusicEntity> = MusicEntity.fetchRequest()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MusicEntity")
         
         do {
             let musicEntities = try context.fetch(fetchRequest)
-            return musicEntities
+            for result in musicEntities as! [NSManagedObject] {
+                            
+                            let artistName = result.value(forKey: "artistName") as? String
+                            let trackId = result.value(forKey: "trackId") as? Int
+                            let trackName = result.value(forKey: "trackName") as? String
+                let collectionName = result.value(forKey: "collectionName") as? String
+                            let artworkUrl100 = result.value(forKey: "artworkUrl100") as? String
+                            
+                            musicEntity.append(
+                                MusicDetails(artistName: artistName ?? "", collectionName: collectionName ?? "", trackName: trackName ?? "", artworkUrl100: artworkUrl100 ?? "", trackId: trackId ?? 0)
+                            )
+                        }
         } catch {
             print("Müzik alınamadı: \(error)")
             return []
         }
+        return musicEntity
     }
 }
+
 

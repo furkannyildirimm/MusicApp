@@ -64,7 +64,7 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-u4-8bR">
                                                                     <rect key="frame" x="4.6666666666666856" y="12.666666666666657" width="50.666666666666664" height="34.333333333333336"/>
-                                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                                     <connections>
@@ -209,12 +209,9 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="playButtonDetail" width="100" height="100"/>
+        <image name="playButtonDetail" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

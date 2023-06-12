@@ -15,6 +15,7 @@ protocol HomePresenterProtocol: AnyObject {
     func didSelectRowAt(index: Int)
     func searchMusic(with keyword: String)
     func clearSearchResults()
+    func navigateToFavourites()
 }
 
 
@@ -37,6 +38,10 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
+    func navigateToFavourites() {
+        router.navigate(.favourites)
+    }
     
     func clearSearchResults() {
         music = [] // Arama sonuçlarını temizle

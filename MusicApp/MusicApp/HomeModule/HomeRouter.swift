@@ -14,9 +14,10 @@ protocol HomeRouterProtocol {
 
 enum HomeRoutes {
     case detail (source: Music?)
+    case favourites
 }
 
-final class HomeRouter {
+final class HomeRouter: HomeRouterProtocol {
     
     weak var viewController: HomeViewController?
     
@@ -30,29 +31,17 @@ final class HomeRouter {
          router.viewController = view
          return view
      }
-
     
-}
-
-extension HomeRouter: HomeRouterProtocol {
     func navigate(_ route: HomeRoutes) {
         switch route {
         case .detail(let source):
             let detailVC = DetaillRouter.createModule()
             detailVC.source = source
             viewController?.navigationController?.pushViewController(detailVC, animated: true)
+        case .favourites:
+            let favouritesVC = FavouritesRouter.createModule()
+            viewController?.navigationController?.pushViewController(favouritesVC, animated: true)
         }
     }
-    
-    
-//    func navigate(_ route: HomeRoutes) {
-//        switch route {
-//        case .detail(let source):
-//
-//            let detailVC = DetailRouter.createModule()
-//            detailVC.source = source
-//            viewController?.navigationController?.pushViewController(detailVC, animated: true)
-//        }
-//    }
-    
 }
+

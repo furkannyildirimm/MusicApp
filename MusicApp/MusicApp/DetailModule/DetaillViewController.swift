@@ -93,7 +93,8 @@ class DetaillViewController: BaseViewController {
             artistName: artistName.text ?? "",
             collectionName: collectionName.text ?? "",
             trackName: trackName.text ?? "",
-            artworkUrl100: source?.artworkUrl100 ?? ""
+            artworkUrl100: source?.artworkUrl100 ?? "",
+            trackId: source?.trackId ?? 0
         )
     }
     
