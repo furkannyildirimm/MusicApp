@@ -18,21 +18,20 @@ class FavouriteCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-       
+        
+        
     }
     
     func configure(with music: MusicEntity) {
-            artistName?.text = music.artistName
-            detail?.text = "\(music.trackName ?? "") - \(music.collectionName ?? "")"
+        artistName?.text = music.artistName
+        detail?.text = "\(music.trackName ?? "") - \(music.collectionName ?? "")"
         
         if let imageURLString = music.artworkUrl100,
-                   let imageURL = URL(string: imageURLString) {
-                    musicImage.sd_setImage(with: imageURL, completed: nil)
-                }
+           let imageURL = URL(string: imageURLString) {
+            musicImage.sd_setImage(with: imageURL, completed: nil)
         }
-    
+    }
 }

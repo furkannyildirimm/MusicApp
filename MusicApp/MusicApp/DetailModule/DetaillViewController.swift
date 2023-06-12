@@ -35,6 +35,8 @@ class DetaillViewController: BaseViewController {
     @IBOutlet weak var collectionPrice: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cardViewTwo: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +45,11 @@ class DetaillViewController: BaseViewController {
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         let isMusicSaved = CoreDataManager.shared.checkIfMusicExists(music: createMusicDetails())
         setHeartButtonImage(isMusicSaved)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isMusicSaved = false
-        
     }
     
     private func setHeartButtonImage(_ isMusicSaved: Bool) {
@@ -69,8 +69,8 @@ class DetaillViewController: BaseViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        let isMusicSaved = CoreDataManager.shared.checkIfMusicExists(music: createMusicDetails())
         
+        let isMusicSaved = CoreDataManager.shared.checkIfMusicExists(music: createMusicDetails())
         if isMusicSaved {
             ConfirmationAlertManager.showConfirmationAlert(from: self, message: "Favorilerden çıkarmak istediğinize emin misiniz?") { [weak self] confirmed in
                        guard let self = self else { return }
@@ -79,18 +79,15 @@ class DetaillViewController: BaseViewController {
                     CoreDataManager.shared.deleteMusic(music: createMusicDetails())
                     print("Müzik başarıyla silindi.")
                     self.setHeartButtonImage(false)
-                    
                 }
-                
             }
         } else {
-            
             self.presenter.saveMusicDetails(music: createMusicDetails())
             print("Müzik başarıyla kaydedildi.")
             self.setHeartButtonImage(true)
         }
-        
     }
+    
     private func createMusicDetails() -> MusicDetails {
         return MusicDetails(
             artistName: artistName.text ?? "",
@@ -98,6 +95,17 @@ class DetaillViewController: BaseViewController {
             trackName: trackName.text ?? "",
             artworkUrl100: source?.artworkUrl100 ?? ""
         )
+    }
+    
+    private func updateTextColorsBasedOnBackground(_ backgroundColor: UIColor?) {
+        guard let backgroundColor = backgroundColor else { return }
+        let textColor: UIColor = backgroundColor.isLight() ? .black : .white
+        artistName.textColor = textColor
+        collectionName.textColor = textColor
+        trackName.textColor = textColor
+        primaryName.textColor = textColor
+        trackPrice.textColor = textColor
+        collectionPrice.textColor = textColor
     }
 }
 
@@ -133,8 +141,13 @@ extension DetaillViewController: DetaillViewControllerProtocol {
     
     func setMusicImage(_ url: URL) {
         DispatchQueue.main.async {
-                self.musicImage.sd_setImage(with: url, completed: nil)
-            }
+            self.musicImage.sd_setImage(with: url, completed: nil)
+            let color = self.musicImage.image?.averageColor
+            self.cardView.backgroundColor = color
+            self.cardViewTwo.backgroundColor = color
+            self.updateTextColorsBasedOnBackground(color)
+
+        }
     }
     
     func getSource() -> Music? {

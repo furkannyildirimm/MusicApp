@@ -47,7 +47,7 @@ final class CustomRightButton: UIButton {
     }
     
     private func setupButton() {
-        setTitle("Favourites", for: .normal)
+        setTitle("Library", for: .normal)
         setTitleColor(.black, for: .normal)
         setImage(UIImage(named: "library"), for: .normal)
         addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)

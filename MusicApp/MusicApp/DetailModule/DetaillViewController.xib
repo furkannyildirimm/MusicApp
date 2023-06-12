@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetaillViewController" customModule="MusicApp" customModuleProvider="target">
             <connections>
                 <outlet property="artistName" destination="Bwm-ev-qfU" id="NMp-I1-WDZ"/>
+                <outlet property="cardView" destination="8Un-B3-EGV" id="U6a-vI-qac"/>
+                <outlet property="cardViewTwo" destination="6NP-Fw-hJn" id="VDq-0Q-5Fr"/>
                 <outlet property="collectionName" destination="UCB-KV-v0H" id="gBg-tb-zWR"/>
                 <outlet property="collectionPrice" destination="BTk-yy-njM" id="431-Mb-Ehw"/>
                 <outlet property="musicImage" destination="wg5-Y5-ff4" id="Ddc-Iu-7VW"/>
@@ -57,18 +59,38 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGe-eT-TuL">
                                                     <rect key="frame" x="257.66666666666669" y="0.0" width="87.333333333333314" height="177.66666666666666"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-u4-8bR">
-                                                            <rect key="frame" x="18" y="8" width="51" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemRedColor"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="x9p-LS-e8X"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjM-fy-cQ2">
+                                                            <rect key="frame" x="13.666666666666629" y="59" width="60" height="60"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-u4-8bR">
+                                                                    <rect key="frame" x="4.6666666666666856" y="12.666666666666657" width="50.666666666666664" height="34.333333333333336"/>
+                                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="x9p-LS-e8X"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="H4k-u4-8bR" firstAttribute="centerX" secondItem="gjM-fy-cQ2" secondAttribute="centerX" id="4bp-zR-mRP"/>
+                                                                <constraint firstItem="H4k-u4-8bR" firstAttribute="centerY" secondItem="gjM-fy-cQ2" secondAttribute="centerY" id="APA-ik-wl2"/>
+                                                                <constraint firstAttribute="height" constant="60" id="ZBi-Kr-Tgx"/>
+                                                                <constraint firstAttribute="width" constant="60" id="ikK-6k-lMF"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="gjM-fy-cQ2" firstAttribute="centerX" secondItem="qGe-eT-TuL" secondAttribute="centerX" id="2Fp-zZ-w05"/>
+                                                        <constraint firstItem="gjM-fy-cQ2" firstAttribute="centerY" secondItem="qGe-eT-TuL" secondAttribute="centerY" id="qiv-nD-vDf"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -163,7 +185,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-bd-PUt">
-                    <rect key="frame" x="135" y="594" width="122" height="106"/>
+                    <rect key="frame" x="135" y="519" width="122" height="106"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="playButtonDetail"/>
@@ -188,6 +210,9 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="playButtonDetail" width="100" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
