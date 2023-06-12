@@ -9,23 +9,39 @@ import Foundation
 import AVFoundation
 
 final class AudioManager {
-    
     static let shared = AudioManager()
-    private var audioPlayer: AVPlayer = AVPlayer()
+    
+    var audioPlayer: AVPlayer?
     var isPlaying: Bool = false
     var songName: String = ""
+    var lastPlaybackTime: CMTime = .zero
+    var currentURL: URL?
     
     func play(url: URL, songName: String) {
+        if let currentURL = currentURL, currentURL == url {
+            if !isPlaying {
+                audioPlayer?.play()
+                isPlaying = true
+                return
+            }
+        }
+        
+        stop()
         
         audioPlayer = AVPlayer(url: url)
-        audioPlayer.play()
-        isPlaying = true
         self.songName = songName
+        currentURL = url
+    
+        audioPlayer?.play()
+        isPlaying = true
     }
     
-    func stop(){
-        audioPlayer.pause()
+    func stop() {
+        audioPlayer?.pause()
         isPlaying = false
-        songName = ""
+        
+        guard let currentTime = audioPlayer?.currentTime() else { return }
+        lastPlaybackTime = currentTime
     }
 }
+

@@ -44,10 +44,10 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
     
-    func configureImage(_ trackName: String){
-        if AudioManager.shared.isPlaying && AudioManager.shared.songName == trackName{
+    func configureImage(_ trackId: Int){
+        if AudioManager.shared.isPlaying && AudioManager.shared.songName == "\(trackId)"{
             playButton.setImage(UIImage(named:"pauseButtonCell"), for: .normal)
-        }else{
+        } else {
             playButton.setImage(UIImage(named: "playButtonCell"), for: .normal)
         }
     }
@@ -59,8 +59,7 @@ final class MusicTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        AudioManager.shared.stop()
-        if AudioManager.shared.songName == musicTitle.text{
+        if let trackId = Int(musicTitle.text ?? ""), AudioManager.shared.songName == "\(trackId)"{
             playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
         } else {
             playButton.setImage(UIImage(named: "playButtonCell"), for: .normal)

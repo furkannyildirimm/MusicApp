@@ -52,10 +52,10 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
         
         let audioManager = AudioManager.shared
         
-        if audioManager.isPlaying && audioManager.songName == music.trackName {
+        if audioManager.isPlaying && audioManager.songName == "\(music.trackId ?? 0)" {
             audioManager.stop()
         } else {
-            audioManager.play(url: previewURL, songName: music.trackName ?? "")
+            audioManager.play(url: previewURL, songName: "\(music.trackId ?? 0)")
             view?.cellReloadData()
         }
         

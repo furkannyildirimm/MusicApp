@@ -82,11 +82,10 @@ extension HomeViewController: UITableViewDataSource {
         if let music = presenter.music(indexPath.row) {
             cell.cellPresenter = MusicCellPresenter(view: cell, music: music)
         }
-        cell.configureImage(presenter.music(indexPath.row)?.trackName ?? "")
+        cell.configureImage(presenter.music(indexPath.row)?.trackId ?? 0)
         return cell
     }
 }
-
 
 extension HomeViewController: UITableViewDelegate {
     
