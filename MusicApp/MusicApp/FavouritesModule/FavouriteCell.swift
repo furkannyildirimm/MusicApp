@@ -16,12 +16,9 @@ class FavouriteCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+        UIView.animate(withDuration: 0.5) {
+            self.center.x += 100
+        }
         
     }
     
@@ -29,9 +26,9 @@ class FavouriteCell: UITableViewCell {
         artistName?.text = music.artistName
         detail?.text = "\(music.trackName ) - \(music.collectionName )"
         
-         let imageURLString = music.artworkUrl100
-           let imageURL = URL(string: imageURLString)
-            musicImage.sd_setImage(with: imageURL, completed: nil)
+        let imageURLString = music.artworkUrl100
+        let imageURL = URL(string: imageURLString)
+        musicImage.sd_setImage(with: imageURL, completed: nil)
         
     }
 }

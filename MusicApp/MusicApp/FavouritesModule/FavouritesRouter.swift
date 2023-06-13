@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavouritesRouterProtocol {
-    // Router metotları buraya eklenir
+    
 }
 
 class FavouritesRouter: FavouritesRouterProtocol {

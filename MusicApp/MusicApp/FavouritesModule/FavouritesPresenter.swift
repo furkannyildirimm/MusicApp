@@ -52,7 +52,6 @@ class FavouritesPresenter: FavouritesPresenterProtocol {
         let musicItem = musicItems[index]
         interactor.deleteMusicItem(music: musicItem)
         interactor.fetchMusicItems()
-        //view?.updateTableView()
     }
 }
 

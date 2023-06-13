@@ -22,7 +22,6 @@
 		5839E51D2A3662CB0011C71F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E51C2A3662CB0011C71F /* Alert.swift */; };
 		5839E51F2A366E710011C71F /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E51E2A366E710011C71F /* FavouritesPresenter.swift */; };
 		5839E5212A366EE10011C71F /* FavouritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5202A366EE10011C71F /* FavouritesInteractor.swift */; };
-		5839E5232A366F0B0011C71F /* FavouritesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5222A366F0B0011C71F /* FavouritesDataManager.swift */; };
 		5839E5252A3683D90011C71F /* FavouritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5242A3683D90011C71F /* FavouritesRouter.swift */; };
 		5839E5282A368E380011C71F /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5272A368E380011C71F /* UIImage + Extension.swift */; };
 		58C7E3182A2F405D005C41B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7E3172A2F405D005C41B1 /* AppDelegate.swift */; };
@@ -92,7 +91,6 @@
 		5839E51C2A3662CB0011C71F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5839E51E2A366E710011C71F /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
 		5839E5202A366EE10011C71F /* FavouritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesInteractor.swift; sourceTree = "<group>"; };
-		5839E5222A366F0B0011C71F /* FavouritesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDataManager.swift; sourceTree = "<group>"; };
 		5839E5242A3683D90011C71F /* FavouritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRouter.swift; sourceTree = "<group>"; };
 		5839E5272A368E380011C71F /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		58C7E3142A2F405D005C41B1 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,7 +176,6 @@
 				5839E5152A36520B0011C71F /* FavouriteCell.xib */,
 				5839E5182A3652290011C71F /* FavouritesViewController.swift */,
 				5839E5202A366EE10011C71F /* FavouritesInteractor.swift */,
-				5839E5222A366F0B0011C71F /* FavouritesDataManager.swift */,
 				5839E51E2A366E710011C71F /* FavouritesPresenter.swift */,
 				5839E5242A3683D90011C71F /* FavouritesRouter.swift */,
 				5839E5192A3652290011C71F /* FavouritesViewController.xib */,
@@ -476,7 +473,6 @@
 				5839E5282A368E380011C71F /* UIImage + Extension.swift in Sources */,
 				58C7E3562A2FB654005C41B1 /* SplashInteractor.swift in Sources */,
 				581FED3F2A31E14300D8B857 /* DetailInteractor.swift in Sources */,
-				5839E5232A366F0B0011C71F /* FavouritesDataManager.swift in Sources */,
 				58E9D53A2A30A33D00648FCA /* UIView + Extension.swift in Sources */,
 				58C7E37D2A2FD02B005C41B1 /* Collection + Extension.swift in Sources */,
 				58C7E3182A2F405D005C41B1 /* AppDelegate.swift in Sources */,

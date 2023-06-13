@@ -26,7 +26,7 @@ struct MusicDetails {
 class CoreDataManager: CoreDataManagerProtocol {
     static let shared = CoreDataManager()
     var isMusicSaved: Bool = false
-
+    
     
     private init() {}
     
@@ -88,7 +88,7 @@ class CoreDataManager: CoreDataManagerProtocol {
             return false
         }
     }
-
+    
     func saveMusic(music: MusicDetails) {
         let context = persistentContainer.viewContext
         let musicEntity = MusicEntity(context: context)
@@ -113,17 +113,17 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             let musicEntities = try context.fetch(fetchRequest)
             for result in musicEntities as! [NSManagedObject] {
-                            
-                            let artistName = result.value(forKey: "artistName") as? String
-                            let trackId = result.value(forKey: "trackId") as? Int
-                            let trackName = result.value(forKey: "trackName") as? String
+                
+                let artistName = result.value(forKey: "artistName") as? String
+                let trackId = result.value(forKey: "trackId") as? Int
+                let trackName = result.value(forKey: "trackName") as? String
                 let collectionName = result.value(forKey: "collectionName") as? String
-                            let artworkUrl100 = result.value(forKey: "artworkUrl100") as? String
-                            
-                            musicEntity.append(
-                                MusicDetails(artistName: artistName ?? "", collectionName: collectionName ?? "", trackName: trackName ?? "", artworkUrl100: artworkUrl100 ?? "", trackId: trackId ?? 0)
-                            )
-                        }
+                let artworkUrl100 = result.value(forKey: "artworkUrl100") as? String
+                
+                musicEntity.append(
+                    MusicDetails(artistName: artistName ?? "", collectionName: collectionName ?? "", trackName: trackName ?? "", artworkUrl100: artworkUrl100 ?? "", trackId: trackId ?? 0)
+                )
+            }
         } catch {
             print("Müzik alınamadı: \(error)")
             return []

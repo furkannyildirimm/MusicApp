@@ -18,50 +18,49 @@ class FavouritesViewController: BaseViewController, FavouritesView {
     var presenter: FavouritesPresenterProtocol?
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            favouritesTableView.register(cellType: FavouriteCell.self)
-            presenter?.viewDidLoad()
-            addCustomBackButton()
-        }
-        
-        private func addCustomBackButton() {
-            let backButton = CustomBackButton()
-            let backButtonItem = UIBarButtonItem(customView: backButton)
-            navigationItem.leftBarButtonItem = backButtonItem
-        }
-        
-        func updateTableView() {
-            favouritesTableView.reloadData()
-        }
+        super.viewDidLoad()
+        favouritesTableView.register(cellType: FavouriteCell.self)
+        presenter?.viewDidLoad()
+        addCustomBackButton()
+    }
     
+    private func addCustomBackButton() {
+        let backButton = CustomBackButton()
+        let backButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backButtonItem
     }
+    
+    func updateTableView() {
+        favouritesTableView.reloadData()
+    }
+}
 
-    extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return presenter?.numberOfMusicItems() ?? 0
+extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numberOfMusicItems() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(with: FavouriteCell.self, for: indexPath)
+        cell.selectionStyle = .none
+        if let musicItem = presenter?.musicItem(at: indexPath.row) {
+            cell.configure(with: musicItem)
         }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(with: FavouriteCell.self, for: indexPath)
-            cell.selectionStyle = .none
-            if let musicItem = presenter?.musicItem(at: indexPath.row) {
-                cell.configure(with: musicItem)
-            }
-            return cell
-        }
-        
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                presenter?.deleteMusicItem(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
-            }
-        }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 130
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter?.deleteMusicItem(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+}
 
 
