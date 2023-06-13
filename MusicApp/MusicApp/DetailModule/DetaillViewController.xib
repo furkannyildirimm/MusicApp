@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -65,7 +66,8 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-u4-8bR">
                                                                     <rect key="frame" x="4.6666666666666856" y="12.666666666666657" width="50.666666666666664" height="34.333333333333336"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title="Button"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="heart" catalog="system"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="x9p-LS-e8X"/>
@@ -99,19 +101,19 @@
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArtistName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwm-ev-qfU">
                                             <rect key="frame" x="0.0" y="193.66666666666669" width="345" height="22.666666666666657"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                             <color key="textColor" red="0.88011103869999996" green="0.2282280028" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CollectionName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCB-KV-v0H">
-                                            <rect key="frame" x="0.0" y="232.33333333333331" width="345" height="25.333333333333314"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCW-Qp-m2w">
+                                            <rect key="frame" x="0.0" y="232.33333333333331" width="345" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCW-Qp-m2w">
-                                            <rect key="frame" x="0.0" y="273.66666666666669" width="345" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CollectionName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCB-KV-v0H">
+                                            <rect key="frame" x="0.0" y="272.33333333333331" width="345" height="25.333333333333314"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -184,10 +186,13 @@
                         <constraint firstAttribute="height" constant="70" id="EVd-op-gGO"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-bd-PUt">
-                    <rect key="frame" x="135" y="578" width="122" height="106"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-bd-PUt">
+                    <rect key="frame" x="135" y="543" width="122" height="106"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="106" id="q3N-0r-u1W"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="playButtonDetail"/>
                     <buttonConfiguration key="configuration" style="plain" image="playButtonDetail"/>
                     <connections>
                         <action selector="playButton:" destination="-1" eventType="touchUpInside" id="Yyz-66-nqU"/>
@@ -200,7 +205,10 @@
                 <constraint firstItem="mfK-wd-3pm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Xlk-yv-SlU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mfK-wd-3pm" secondAttribute="trailing" constant="16" id="ZSq-3h-yUl"/>
                 <constraint firstItem="xr6-zT-60E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="det-PJ-mBB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ovK-bd-PUt" secondAttribute="trailing" constant="136" id="fRq-sb-fEC"/>
                 <constraint firstItem="mfK-wd-3pm" firstAttribute="top" secondItem="xr6-zT-60E" secondAttribute="bottom" constant="16" id="hV9-db-3JL"/>
+                <constraint firstItem="ovK-bd-PUt" firstAttribute="top" secondItem="mfK-wd-3pm" secondAttribute="bottom" constant="32" id="hej-yy-Ml4"/>
+                <constraint firstItem="ovK-bd-PUt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="135" id="w5s-nK-da6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xr6-zT-60E" secondAttribute="trailing" constant="16" id="x2v-VM-5oc"/>
                 <constraint firstItem="xr6-zT-60E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="xMx-27-RyT"/>
             </constraints>
