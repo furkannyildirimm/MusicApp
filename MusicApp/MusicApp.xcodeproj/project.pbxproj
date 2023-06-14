@@ -25,6 +25,8 @@
 		5839E5252A3683D90011C71F /* FavouritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5242A3683D90011C71F /* FavouritesRouter.swift */; };
 		5839E5282A368E380011C71F /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5272A368E380011C71F /* UIImage + Extension.swift */; };
 		58727D952A393F7A00BB36B2 /* EmptyView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */; };
+		58727D9D2A3A5B4E00BB36B2 /* HomeRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58727D9C2A3A5B4E00BB36B2 /* HomeRouterTest.swift */; };
+		58727D9F2A3A7BCB00BB36B2 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58727D9E2A3A7BCB00BB36B2 /* HomeInteractorTests.swift */; };
 		589D57372A38E10200727D18 /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D57362A38E10200727D18 /* MockHomeViewController.swift */; };
 		589D57392A38E15600727D18 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 589D57382A38E15600727D18 /* SDWebImage */; };
 		589D573B2A38E16200727D18 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 589D573A2A38E16200727D18 /* SDWebImage */; };
@@ -102,6 +104,8 @@
 		5839E5242A3683D90011C71F /* FavouritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRouter.swift; sourceTree = "<group>"; };
 		5839E5272A368E380011C71F /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyView + Extension.swift"; sourceTree = "<group>"; };
+		58727D9C2A3A5B4E00BB36B2 /* HomeRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterTest.swift; sourceTree = "<group>"; };
+		58727D9E2A3A7BCB00BB36B2 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 		589D57362A38E10200727D18 /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
 		589D573C2A38E2A900727D18 /* MockHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRouter.swift; sourceTree = "<group>"; };
 		589D573E2A38E3A000727D18 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
@@ -216,14 +220,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		58727D9A2A39DB4E00BB36B2 /* Assets */ = {
+		58727D9A2A39DB4E00BB36B2 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				58C7E3232A2F405E005C41B1 /* Assets.xcassets */,
 				58C7E3252A2F405E005C41B1 /* LaunchScreen.storyboard */,
 				58C7E3202A2F405D005C41B1 /* MusicApp.xcdatamodeld */,
 			);
-			path = Assets;
+			path = App;
 			sourceTree = "<group>";
 		};
 		58727D9B2A39DB7D00BB36B2 /* Modules */ = {
@@ -264,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				58727D982A39D92100BB36B2 /* AppDelegate */,
-				58727D9A2A39DB4E00BB36B2 /* Assets */,
+				58727D9A2A39DB4E00BB36B2 /* App */,
 				58C7E3282A2F405E005C41B1 /* Info.plist */,
 				58727D9B2A39DB7D00BB36B2 /* Modules */,
 				58C7E3742A2FC78B005C41B1 /* Utils */,
@@ -382,6 +386,8 @@
 			children = (
 				589D573E2A38E3A000727D18 /* HomePresenterTests.swift */,
 				589D57402A38E91200727D18 /* MockHomeInteractor.swift */,
+				58727D9E2A3A7BCB00BB36B2 /* HomeInteractorTests.swift */,
+				58727D9C2A3A5B4E00BB36B2 /* HomeRouterTest.swift */,
 				589D573C2A38E2A900727D18 /* MockHomeRouter.swift */,
 				589D57362A38E10200727D18 /* MockHomeViewController.swift */,
 				589D57422A39000B00727D18 /* Music.json */,
@@ -586,8 +592,10 @@
 				589D57372A38E10200727D18 /* MockHomeViewController.swift in Sources */,
 				58C7E3322A2F405E005C41B1 /* MusicAppTests.swift in Sources */,
 				589D57412A38E91200727D18 /* MockHomeInteractor.swift in Sources */,
+				58727D9F2A3A7BCB00BB36B2 /* HomeInteractorTests.swift in Sources */,
 				589D573F2A38E3A000727D18 /* HomePresenterTests.swift in Sources */,
 				589D573D2A38E2A900727D18 /* MockHomeRouter.swift in Sources */,
+				58727D9D2A3A5B4E00BB36B2 /* HomeRouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
