@@ -29,6 +29,7 @@ final class CustomBackButton: UIButton {
     @objc private func backButtonTapped() {
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             navigationController.popViewController(animated: true)
+           // AudioManager.shared.stop()
         }
     }
 }

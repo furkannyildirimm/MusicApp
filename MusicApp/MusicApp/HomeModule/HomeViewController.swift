@@ -32,7 +32,14 @@ class HomeViewController: BaseViewController {
         presenter.viewDidLoad()
         addCustomRightButton()
         emptyView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+              tapGesture.cancelsTouchesInView = false
+              view.addGestureRecognizer(tapGesture)
     }
+    
+    @objc private func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -137,6 +144,9 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        dismissKeyboard()
+    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
@@ -155,6 +165,14 @@ extension HomeViewController: UISearchBarDelegate {
         }
         presenter.searchMusic(with: keyword)
         checkEmptyState()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+           presenter.clearSearchResults()
+           searchBar.showsCancelButton = false
+           searchBar.resignFirstResponder()
+           tableView.reloadData()
     }
 }
 
