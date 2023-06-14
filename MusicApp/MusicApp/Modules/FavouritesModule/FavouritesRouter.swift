@@ -11,7 +11,7 @@ protocol FavouritesRouterProtocol {
     
 }
 
-class FavouritesRouter: FavouritesRouterProtocol {
+final class FavouritesRouter: FavouritesRouterProtocol {
     weak var view: UIViewController?
     
     static func createModule() -> UIViewController {

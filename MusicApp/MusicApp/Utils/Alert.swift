@@ -9,11 +9,11 @@ import UIKit
 
 class ConfirmationAlertManager {
     static func showConfirmationAlert(from viewController: UIViewController, message: String, completion: @escaping (Bool) -> Void) {
-        let alertController = UIAlertController(title: "Onay", message: message, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Evet", style: .default) { _ in
+        let alertController = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
             completion(true)
         }
-        let cancelAction = UIAlertAction(title: "Hayır", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "No", style: .cancel) { _ in
             completion(false)
         }
         alertController.addAction(confirmAction)

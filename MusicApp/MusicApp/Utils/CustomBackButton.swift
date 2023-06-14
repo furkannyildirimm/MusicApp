@@ -22,14 +22,13 @@ final class CustomBackButton: UIButton {
     private func setupButton() {
         setImage(UIImage(named: "left-arrow"), for: .normal)
         addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        //setTitle("Back", for: .normal)
         setTitleColor(.black, for: .normal)
     }
     
     @objc private func backButtonTapped() {
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             navigationController.popViewController(animated: true)
-           // AudioManager.shared.stop()
+            AudioManager.shared.stop()
         }
     }
 }

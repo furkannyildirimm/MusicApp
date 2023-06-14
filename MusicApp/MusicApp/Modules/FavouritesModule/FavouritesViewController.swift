@@ -11,7 +11,7 @@ protocol FavouritesView: AnyObject {
     func updateTableView()
 }
 
-class FavouritesViewController: BaseViewController, FavouritesView {
+final class FavouritesViewController: BaseViewController, FavouritesView {
     
     @IBOutlet weak var favouritesTableView: UITableView!
     private var emptyStateImageView: UIImageView!
@@ -73,10 +73,16 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            presenter?.deleteMusicItem(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-            checkEmptyState()
+            let message = "Are you sure you want to remove from favorites?"
+            ConfirmationAlertManager.showConfirmationAlert(from: self, message: message) { confirmed in
+                if confirmed {
+                    self.presenter?.deleteMusicItem(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    tableView.reloadData()
+                    self.checkEmptyState()
+                } else {
+                }
+            }
         }
     }
     

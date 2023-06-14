@@ -99,12 +99,10 @@ final class MusicAppUITests: XCTestCase {
         let loveButton = app.buttons["love"]
         loveButton.tap()
         loveButton.tap()
-        app.alerts["Onay"].scrollViews.otherElements.buttons["Evet"].tap()
+        app.alerts["Attention"].scrollViews.otherElements.buttons["Yes"].tap()
         app.navigationBars["MusicApp.DetaillView"].buttons["left arrow"].tap()
                         
     }
-    
-    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {

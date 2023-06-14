@@ -72,7 +72,7 @@ class DetaillViewController: BaseViewController {
         
         let isMusicSaved = CoreDataManager.shared.checkIfMusicExists(music: createMusicDetails())
         if isMusicSaved {
-            ConfirmationAlertManager.showConfirmationAlert(from: self, message: "Favorilerden çıkarmak istediğinize emin misiniz?") { [weak self] confirmed in
+            ConfirmationAlertManager.showConfirmationAlert(from: self, message: "Are you sure you want to remove from favorites?") { [weak self] confirmed in
                 guard let self = self else { return }
                 
                 if confirmed {
@@ -147,7 +147,6 @@ extension DetaillViewController: DetaillViewControllerProtocol {
             self.cardView.backgroundColor = color
             self.cardViewTwo.backgroundColor = color
             self.updateTextColorsBasedOnBackground(color)
-            
         }
     }
     

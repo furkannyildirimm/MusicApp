@@ -25,13 +25,10 @@ final class AudioManager {
                 return
             }
         }
-        
         stop()
-        
         audioPlayer = AVPlayer(url: url)
         self.songName = songName
         currentURL = url
-    
         audioPlayer?.play()
         isPlaying = true
     }
@@ -39,7 +36,6 @@ final class AudioManager {
     func stop() {
         audioPlayer?.pause()
         isPlaying = false
-        
         guard let currentTime = audioPlayer?.currentTime() else { return }
         lastPlaybackTime = currentTime
     }

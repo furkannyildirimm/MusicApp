@@ -11,13 +11,12 @@ import MusicAPI
 protocol HomePresenterProtocol: AnyObject {
     func viewDidLoad()
     func numberOfItems() -> Int
-    func music(_ index: Int) -> Music? // ???
+    func music(_ index: Int) -> Music?
     func didSelectRowAt(index: Int)
     func searchMusic(with keyword: String)
     func clearSearchResults()
     func navigateToFavourites()
 }
-
 
 final class HomePresenter {
     unowned var view: HomeViewControllerProtocol
@@ -44,10 +43,9 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func clearSearchResults() {
-        music = [] // Arama sonuçlarını temizle
+        music = []
         view.reloadData()
     }
-    
     
     func searchMusic(with keyword: String) {
         view.showLoadingView()
@@ -56,7 +54,6 @@ extension HomePresenter: HomePresenterProtocol {
     
     func viewDidLoad() {
         view.setupTableView()
-        fetchMusic() // sadsdadsadsadsasda
     }
     
     func numberOfItems() -> Int {
@@ -71,22 +68,17 @@ extension HomePresenter: HomePresenterProtocol {
         guard let source = music(index) else { return }
         router.navigate(.detail(source: source))
     }
-    
-    private func fetchMusic() {
-        //view.showLoadingView()
-        //interactor.fetchMusic()
-    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     func fetchMusicOutput(_ result: MusicSourcesResult) {
         view.hideLoadingView()
         switch result {
-                  case .success(let response):
-                      self.music = response
-                      view.reloadData()
-                  case .failure(let error):
-                      view.showError(error.localizedDescription)
-              }
+        case .success(let response):
+            self.music = response
+            view.reloadData()
+        case .failure(let error):
+            view.showError(error.localizedDescription)
+        }
     }
 }

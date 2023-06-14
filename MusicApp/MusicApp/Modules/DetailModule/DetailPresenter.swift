@@ -20,7 +20,6 @@ final class DetaillPresenter {
     unowned var view: DetaillViewControllerProtocol!
     let router: DetaillRouterProtocol!
     
-    
     init(
         view: DetaillViewControllerProtocol,
         router: DetaillRouterProtocol
@@ -37,7 +36,6 @@ extension DetaillPresenter: DetaillPresenterProtocol {
     
     func deleteMusicDetails(music: MusicDetails) {
         CoreDataManager.shared.deleteMusic(music: music)
-        
     }
     
     func playAudio() {

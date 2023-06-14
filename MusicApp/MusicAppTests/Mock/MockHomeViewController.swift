@@ -49,6 +49,4 @@ final class MockHomeViewController: HomeViewControllerProtocol {
         isInvokedHideLoading = true
         invokedHideLoadingCount += 1
     }
-    
-    
 }

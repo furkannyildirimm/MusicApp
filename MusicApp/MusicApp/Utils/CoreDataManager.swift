@@ -27,7 +27,6 @@ class CoreDataManager: CoreDataManagerProtocol {
     static let shared = CoreDataManager()
     var isMusicSaved: Bool = false
     
-    
     private init() {}
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -106,7 +105,6 @@ class CoreDataManager: CoreDataManagerProtocol {
     func fetchMusic() -> [MusicDetails] {
         
         var musicEntity: [MusicDetails] = []
-        
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MusicEntity")
         

@@ -19,9 +19,9 @@ final class SplashPresenter: SplashPresenterProtocol {
     let interactor: SplashInteractorProtocol!
     
     init(
-         view: SplashViewControllerProtocol,
-         router: SplashRouterProtocol,
-         interactor: SplashInteractorProtocol
+        view: SplashViewControllerProtocol,
+        router: SplashRouterProtocol,
+        interactor: SplashInteractorProtocol
     ) {
         self.view = view
         self.router = router

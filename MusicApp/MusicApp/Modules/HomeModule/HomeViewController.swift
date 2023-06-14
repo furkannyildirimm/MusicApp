@@ -15,12 +15,13 @@ protocol HomeViewControllerProtocol: AnyObject {
     func hideLoadingView()
 }
 
-class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: HomePresenterProtocol!
+    
     private var isEmpty: Bool = true
     private var emptyStateImageView: UIImageView!
     private var searchTimer: Timer?

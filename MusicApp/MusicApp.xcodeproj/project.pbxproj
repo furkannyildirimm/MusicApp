@@ -177,10 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				581FED3E2A31E14300D8B857 /* DetailInteractor.swift */,
-				581FED402A31E15700D8B857 /* DetailPresenter.swift */,
-				581FED422A31E16500D8B857 /* DetailRouter.swift */,
 				581FED442A31E5B200D8B857 /* DetaillViewController.swift */,
 				581FED452A31E5B200D8B857 /* DetaillViewController.xib */,
+				581FED402A31E15700D8B857 /* DetailPresenter.swift */,
+				581FED422A31E16500D8B857 /* DetailRouter.swift */,
 			);
 			path = DetailModule;
 			sourceTree = "<group>";
@@ -188,15 +188,54 @@
 		5839E5132A3651E30011C71F /* FavouritesModule */ = {
 			isa = PBXGroup;
 			children = (
-				5839E5142A36520B0011C71F /* FavouriteCell.swift */,
-				5839E5152A36520B0011C71F /* FavouriteCell.xib */,
-				5839E5182A3652290011C71F /* FavouritesViewController.swift */,
 				5839E5202A366EE10011C71F /* FavouritesInteractor.swift */,
 				5839E51E2A366E710011C71F /* FavouritesPresenter.swift */,
 				5839E5242A3683D90011C71F /* FavouritesRouter.swift */,
+				5839E5182A3652290011C71F /* FavouritesViewController.swift */,
 				5839E5192A3652290011C71F /* FavouritesViewController.xib */,
+				58727D992A39DA5600BB36B2 /* View */,
 			);
 			path = FavouritesModule;
+			sourceTree = "<group>";
+		};
+		58727D982A39D92100BB36B2 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */,
+				58C7E3172A2F405D005C41B1 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		58727D992A39DA5600BB36B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5839E5142A36520B0011C71F /* FavouriteCell.swift */,
+				5839E5152A36520B0011C71F /* FavouriteCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		58727D9A2A39DB4E00BB36B2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				58C7E3232A2F405E005C41B1 /* Assets.xcassets */,
+				58C7E3252A2F405E005C41B1 /* LaunchScreen.storyboard */,
+				58C7E3202A2F405D005C41B1 /* MusicApp.xcdatamodeld */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		58727D9B2A39DB7D00BB36B2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				58C7E35B2A2FB80A005C41B1 /* BaseModule */,
+				581FED392A31E07300D8B857 /* DetailModule */,
+				5839E5132A3651E30011C71F /* FavouritesModule */,
+				58C7E3622A2FBF1B005C41B1 /* HomeModule */,
+				58C7E3502A2FB5E6005C41B1 /* SplashModule */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		58C7E30B2A2F405D005C41B1 = {
@@ -224,23 +263,11 @@
 		58C7E3162A2F405D005C41B1 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
-				58C7E3172A2F405D005C41B1 /* AppDelegate.swift */,
-				58C7E3192A2F405D005C41B1 /* SceneDelegate.swift */,
-				58C7E34E2A2FB172005C41B1 /* Reachability.swift */,
-				5839E5132A3651E30011C71F /* FavouritesModule */,
-				581FED392A31E07300D8B857 /* DetailModule */,
-				58C7E3502A2FB5E6005C41B1 /* SplashModule */,
-				58C7E35B2A2FB80A005C41B1 /* BaseModule */,
-				58C7E3622A2FBF1B005C41B1 /* HomeModule */,
-				58C7E3772A2FC807005C41B1 /* CustomView */,
-				58C7E3742A2FC78B005C41B1 /* Utils */,
-				58C7E3232A2F405E005C41B1 /* Assets.xcassets */,
-				581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */,
-				5839E51C2A3662CB0011C71F /* Alert.swift */,
-				58C7E3792A2FCF62005C41B1 /* Extension */,
-				58C7E3252A2F405E005C41B1 /* LaunchScreen.storyboard */,
+				58727D982A39D92100BB36B2 /* AppDelegate */,
+				58727D9A2A39DB4E00BB36B2 /* Assets */,
 				58C7E3282A2F405E005C41B1 /* Info.plist */,
-				58C7E3202A2F405D005C41B1 /* MusicApp.xcdatamodeld */,
+				58727D9B2A39DB7D00BB36B2 /* Modules */,
+				58C7E3742A2FC78B005C41B1 /* Utils */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -293,12 +320,12 @@
 		58C7E3622A2FBF1B005C41B1 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
-				58C7E36D2A2FC42D005C41B1 /* View */,
-				58C7E3632A2FBF8E005C41B1 /* HomeViewController.swift */,
-				58C7E3642A2FBF8E005C41B1 /* HomeViewController.xib */,
 				58C7E3672A2FBFA1005C41B1 /* HomeInteractor.swift */,
 				58C7E3692A2FBFD6005C41B1 /* HomePresenter.swift */,
 				58C7E36B2A2FC027005C41B1 /* HomeRouter.swift */,
+				58C7E3632A2FBF8E005C41B1 /* HomeViewController.swift */,
+				58C7E3642A2FBF8E005C41B1 /* HomeViewController.xib */,
+				58C7E36D2A2FC42D005C41B1 /* View */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -306,8 +333,8 @@
 		58C7E36D2A2FC42D005C41B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				58C7E36E2A2FC456005C41B1 /* MusicTableViewCell.swift */,
 				58C7E3802A2FD9F0005C41B1 /* MusicCellPresenter.swift */,
+				58C7E36E2A2FC456005C41B1 /* MusicTableViewCell.swift */,
 				58C7E36F2A2FC456005C41B1 /* MusicTableViewCell.xib */,
 			);
 			path = View;
@@ -316,31 +343,36 @@
 		58C7E3742A2FC78B005C41B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				58C7E3722A2FC776005C41B1 /* LoadingShowable.swift */,
+				5839E51C2A3662CB0011C71F /* Alert.swift */,
 				581FED482A334B1500D8B857 /* AudioManager.swift */,
 				5839E5112A3650B00011C71F /* CoreDataManager.swift */,
+				581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */,
+				58C7E34E2A2FB172005C41B1 /* Reachability.swift */,
+				58C7E3792A2FCF62005C41B1 /* Extension */,
+				58C7E3772A2FC807005C41B1 /* Loading */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		58C7E3772A2FC807005C41B1 /* CustomView */ = {
+		58C7E3772A2FC807005C41B1 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
+				58C7E3722A2FC776005C41B1 /* LoadingShowable.swift */,
 				58C7E3752A2FC7D0005C41B1 /* LoadingView.swift */,
 			);
-			path = CustomView;
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		58C7E3792A2FCF62005C41B1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				58C7E37A2A2FCF81005C41B1 /* ClassName + Extension.swift */,
 				58E9D5372A30A30400648FCA /* CardView.swift */,
-				58E9D5392A30A33D00648FCA /* UIView + Extension.swift */,
+				58C7E37A2A2FCF81005C41B1 /* ClassName + Extension.swift */,
 				58C7E37C2A2FD02B005C41B1 /* Collection + Extension.swift */,
-				58C7E37E2A2FD047005C41B1 /* UITableView + Extensions.swift */,
-				5839E5272A368E380011C71F /* UIImage + Extension.swift */,
 				58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */,
+				5839E5272A368E380011C71F /* UIImage + Extension.swift */,
+				58C7E37E2A2FD047005C41B1 /* UITableView + Extensions.swift */,
+				58E9D5392A30A33D00648FCA /* UIView + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -348,11 +380,11 @@
 		58D4383B2A38D3200054B738 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				589D57362A38E10200727D18 /* MockHomeViewController.swift */,
-				589D57422A39000B00727D18 /* Music.json */,
-				589D573C2A38E2A900727D18 /* MockHomeRouter.swift */,
 				589D573E2A38E3A000727D18 /* HomePresenterTests.swift */,
 				589D57402A38E91200727D18 /* MockHomeInteractor.swift */,
+				589D573C2A38E2A900727D18 /* MockHomeRouter.swift */,
+				589D57362A38E10200727D18 /* MockHomeViewController.swift */,
+				589D57422A39000B00727D18 /* Music.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";

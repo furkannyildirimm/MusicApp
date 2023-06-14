@@ -12,7 +12,7 @@ protocol SplashViewControllerProtocol: AnyObject {
 }
 
 final class SplashViewController: BaseViewController {
-
+    
     var presenter: SplashPresenterProtocol!
     
     override func viewDidLoad() {

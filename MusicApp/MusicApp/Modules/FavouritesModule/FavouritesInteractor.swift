@@ -16,7 +16,7 @@ protocol FavouritesInteractorOutput: AnyObject {
     func fetchMusic(musicModel: [MusicDetails])
 }
 
-class FavouritesInteractor: FavouritesInteractorProtocol {
+final class FavouritesInteractor: FavouritesInteractorProtocol {
     
     var output: FavouritesInteractorOutput!
     var dataManager: CoreDataManagerProtocol

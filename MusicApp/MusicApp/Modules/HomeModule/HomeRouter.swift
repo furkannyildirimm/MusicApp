@@ -22,15 +22,15 @@ final class HomeRouter: HomeRouterProtocol {
     weak var viewController: HomeViewController?
     
     static func createModule() -> HomeViewController {
-         let view = HomeViewController()
-         let interactor = HomeInteractor()
-         let router = HomeRouter()
-         let presenter = HomePresenter(view: view, router: router, interactor: interactor)
-         view.presenter = presenter
-         interactor.output = presenter
-         router.viewController = view
-         return view
-     }
+        let view = HomeViewController()
+        let interactor = HomeInteractor()
+        let router = HomeRouter()
+        let presenter = HomePresenter(view: view, router: router, interactor: interactor)
+        view.presenter = presenter
+        interactor.output = presenter
+        router.viewController = view
+        return view
+    }
     
     func navigate(_ route: HomeRoutes) {
         switch route {

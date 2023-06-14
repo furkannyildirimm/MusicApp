@@ -9,11 +9,6 @@ import UIKit
 
 class BaseViewController: UIViewController, LoadingShowable{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     func showAlert(_ title: String, _ message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

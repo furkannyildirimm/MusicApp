@@ -8,13 +8,11 @@
 import Foundation
 
 protocol DetailInteractorProtocol {
-    
 }
 
 protocol DetailInteractorOutputProtocol {
     func fetchMusicDetailOutput(result: MusicSourcesResult)
 }
-
 
 final class DetaillInteractor {
     var output: HomeInteractorOutputProtocol?

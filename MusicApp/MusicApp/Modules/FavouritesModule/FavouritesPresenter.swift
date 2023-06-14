@@ -14,7 +14,7 @@ protocol FavouritesPresenterProtocol {
     func deleteMusicItem(at index: Int)
 }
 
-class FavouritesPresenter: FavouritesPresenterProtocol {
+final class FavouritesPresenter: FavouritesPresenterProtocol {
     
     weak var view: FavouritesView?
     var interactor: FavouritesInteractorProtocol
