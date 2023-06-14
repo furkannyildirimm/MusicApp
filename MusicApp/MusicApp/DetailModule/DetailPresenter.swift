@@ -28,7 +28,6 @@ final class DetaillPresenter {
         self.view = view
         self.router = router
     }
-    
 }
 
 extension DetaillPresenter: DetaillPresenterProtocol {
@@ -38,9 +37,8 @@ extension DetaillPresenter: DetaillPresenterProtocol {
     
     func deleteMusicDetails(music: MusicDetails) {
         CoreDataManager.shared.deleteMusic(music: music)
-
+        
     }
-    
     
     func playAudio() {
         guard let music = view.getSource() else { return }
@@ -72,8 +70,5 @@ extension DetaillPresenter: DetaillPresenterProtocol {
            let imageURL = URL(string: imageURLString) {
             view?.setMusicImage(imageURL)
         }
-        
     }
-    
-    
 }

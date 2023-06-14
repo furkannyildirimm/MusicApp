@@ -14,7 +14,7 @@ protocol FavouritesView: AnyObject {
 class FavouritesViewController: BaseViewController, FavouritesView {
     
     @IBOutlet weak var favouritesTableView: UITableView!
-    
+    private var emptyStateImageView: UIImageView!
     var presenter: FavouritesPresenterProtocol?
     
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class FavouritesViewController: BaseViewController, FavouritesView {
         favouritesTableView.register(cellType: FavouriteCell.self)
         presenter?.viewDidLoad()
         addCustomBackButton()
+        emptyView()
     }
     
     private func addCustomBackButton() {
@@ -32,6 +33,26 @@ class FavouritesViewController: BaseViewController, FavouritesView {
     
     func updateTableView() {
         favouritesTableView.reloadData()
+        checkEmptyState()
+    }
+    
+    private func emptyView(){
+        emptyStateImageView = UIImageView(emptyStateImage: UIImage(named: "emptyView")!)
+        emptyStateImageView.showEmptyState(in: view)
+        favouritesTableView.separatorStyle = .none
+        favouritesTableView.tableFooterView = UIView()
+        checkEmptyState()
+    }
+    
+    func checkEmptyState() {
+        let isEmpty = presenter?.numberOfMusicItems() == 0
+        favouritesTableView.separatorStyle = isEmpty ? .none : .none
+        
+        if isEmpty {
+            emptyStateImageView.showEmptyState(in: view)
+        } else {
+            emptyStateImageView.hideEmptyState()
+        }
     }
 }
 
@@ -55,6 +76,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
             presenter?.deleteMusicItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
+            checkEmptyState()
         }
     }
     

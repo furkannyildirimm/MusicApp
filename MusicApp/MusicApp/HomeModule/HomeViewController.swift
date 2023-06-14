@@ -32,14 +32,18 @@ class HomeViewController: BaseViewController {
         presenter.viewDidLoad()
         addCustomRightButton()
         emptyView()
+        hiddenKeyboard()
+    }
+    
+    func hiddenKeyboard(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-              tapGesture.cancelsTouchesInView = false
-              view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc private func dismissKeyboard() {
-           view.endEditing(true)
-       }
+        view.endEditing(true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -58,16 +62,8 @@ class HomeViewController: BaseViewController {
     }
     
     private func emptyView(){
-        emptyStateImageView = UIImageView(image: UIImage(named: "emptyView"))
-        emptyStateImageView.contentMode = .center
-        emptyStateImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emptyStateImageView)
-        
-        NSLayoutConstraint.activate([
-            emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emptyStateImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
+        emptyStateImageView = UIImageView(emptyStateImage: UIImage(named: "emptyView")!)
+        emptyStateImageView.showEmptyState(in: view)
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
     }
@@ -101,11 +97,16 @@ extension HomeViewController: HomeViewControllerProtocol {
         checkEmptyState()
     }
     
-    private func checkEmptyState() {
+    func checkEmptyState() {
         let isEmpty = presenter.numberOfItems() == 0
         self.isEmpty = isEmpty
         tableView.separatorStyle = isEmpty ? .none : .none
-        emptyStateImageView.isHidden = !isEmpty
+        
+        if isEmpty {
+            emptyStateImageView.showEmptyState(in: view)
+        } else {
+            emptyStateImageView.hideEmptyState()
+        }
     }
 }
 
@@ -169,10 +170,10 @@ extension HomeViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-           presenter.clearSearchResults()
-           searchBar.showsCancelButton = false
-           searchBar.resignFirstResponder()
-           tableView.reloadData()
+        presenter.clearSearchResults()
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
     }
 }
 

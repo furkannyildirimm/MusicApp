@@ -45,7 +45,7 @@ final class HomePresenterTests: XCTestCase {
     }
     
     
-    func testSearchMusic() {
+    func test_SearchMusic() {
         
         
         XCTAssertFalse(view.isInvokedShowLoading)

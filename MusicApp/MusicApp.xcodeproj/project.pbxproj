@@ -24,6 +24,7 @@
 		5839E5212A366EE10011C71F /* FavouritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5202A366EE10011C71F /* FavouritesInteractor.swift */; };
 		5839E5252A3683D90011C71F /* FavouritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5242A3683D90011C71F /* FavouritesRouter.swift */; };
 		5839E5282A368E380011C71F /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5272A368E380011C71F /* UIImage + Extension.swift */; };
+		58727D952A393F7A00BB36B2 /* EmptyView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */; };
 		589D57372A38E10200727D18 /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D57362A38E10200727D18 /* MockHomeViewController.swift */; };
 		589D57392A38E15600727D18 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 589D57382A38E15600727D18 /* SDWebImage */; };
 		589D573B2A38E16200727D18 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 589D573A2A38E16200727D18 /* SDWebImage */; };
@@ -100,6 +101,7 @@
 		5839E5202A366EE10011C71F /* FavouritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesInteractor.swift; sourceTree = "<group>"; };
 		5839E5242A3683D90011C71F /* FavouritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRouter.swift; sourceTree = "<group>"; };
 		5839E5272A368E380011C71F /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyView + Extension.swift"; sourceTree = "<group>"; };
 		589D57362A38E10200727D18 /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
 		589D573C2A38E2A900727D18 /* MockHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRouter.swift; sourceTree = "<group>"; };
 		589D573E2A38E3A000727D18 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				58C7E37C2A2FD02B005C41B1 /* Collection + Extension.swift */,
 				58C7E37E2A2FD047005C41B1 /* UITableView + Extensions.swift */,
 				5839E5272A368E380011C71F /* UIImage + Extension.swift */,
+				58727D942A393F7A00BB36B2 /* EmptyView + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				58C7E34F2A2FB172005C41B1 /* Reachability.swift in Sources */,
 				581FED432A31E16500D8B857 /* DetailRouter.swift in Sources */,
 				58C7E3652A2FBF8E005C41B1 /* HomeViewController.swift in Sources */,
+				58727D952A393F7A00BB36B2 /* EmptyView + Extension.swift in Sources */,
 				58C7E36C2A2FC027005C41B1 /* HomeRouter.swift in Sources */,
 				58C7E36A2A2FBFD6005C41B1 /* HomePresenter.swift in Sources */,
 				58C7E35A2A2FB68D005C41B1 /* SplashRouter.swift in Sources */,
