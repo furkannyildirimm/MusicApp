@@ -23,12 +23,11 @@ final class MusicAppUITests: XCTestCase {
         let app = XCUIApplication()
         app.navigationBars["MusicApp.HomeView"].buttons["Library"].tap()
         app.navigationBars["MusicApp.FavouritesView"].buttons["left arrow"].tap()
-                        
     }
     
     func testFavouriteAdd() throws {
         
-        let app = XCUIApplication()
+       
         app.launch()
         app.searchFields["Search Artist, Song..."].tap()
         
@@ -61,11 +60,10 @@ final class MusicAppUITests: XCTestCase {
         
         let loveButton = app.buttons["love"]
         loveButton.tap()
-        
     }
     
     func testFavouriteDelete() throws {
-        let app = XCUIApplication()
+        
         app.launch()
         app.searchFields["Search Artist, Song..."].tap()
         
@@ -101,7 +99,6 @@ final class MusicAppUITests: XCTestCase {
         loveButton.tap()
         app.alerts["Attention"].scrollViews.otherElements.buttons["Yes"].tap()
         app.navigationBars["MusicApp.DetaillView"].buttons["left arrow"].tap()
-                        
     }
 
     func testLaunchPerformance() throws {

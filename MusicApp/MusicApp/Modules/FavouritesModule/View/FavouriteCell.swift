@@ -8,11 +8,11 @@
 import UIKit
 import SDWebImage
 
-class FavouriteCell: UITableViewCell {
+final class FavouriteCell: UITableViewCell {
     
-    @IBOutlet weak var artistName: UILabel!
-    @IBOutlet weak var detail: UILabel!
-    @IBOutlet weak var musicImage: UIImageView!
+    @IBOutlet private weak var artistName: UILabel!
+    @IBOutlet private weak var detail: UILabel!
+    @IBOutlet private weak var musicImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

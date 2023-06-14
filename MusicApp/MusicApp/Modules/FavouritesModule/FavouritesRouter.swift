@@ -7,18 +7,14 @@
 
 import UIKit
 
-protocol FavouritesRouterProtocol {
-    
-}
-
-final class FavouritesRouter: FavouritesRouterProtocol {
+final class FavouritesRouter {
     weak var view: UIViewController?
     
     static func createModule() -> UIViewController {
         let viewController = FavouritesViewController()
         let interactor = FavouritesInteractor(dataManager: CoreDataManager.shared)
         let router = FavouritesRouter()
-        let presenter = FavouritesPresenter(view: viewController, interactor: interactor, router: router)
+        let presenter = FavouritesPresenter(view: viewController, interactor: interactor)
         interactor.output = presenter
         viewController.presenter = presenter
         router.view = viewController

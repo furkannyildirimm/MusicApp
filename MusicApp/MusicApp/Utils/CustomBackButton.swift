@@ -47,7 +47,10 @@ final class CustomRightButton: UIButton {
     private func setupButton() {
         setTitle("Library", for: .normal)
         setTitleColor(.black, for: .normal)
-        setImage(UIImage(named: "library"), for: .normal)
+        if let image = UIImage(systemName: "list.dash")?.withRenderingMode(.alwaysTemplate) {
+                setImage(image, for: .normal)
+                tintColor = .black
+            }
     }
 }
 

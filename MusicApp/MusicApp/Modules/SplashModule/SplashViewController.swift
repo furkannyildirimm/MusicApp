@@ -18,7 +18,6 @@ final class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidAppear()
-        
     }
 }
 

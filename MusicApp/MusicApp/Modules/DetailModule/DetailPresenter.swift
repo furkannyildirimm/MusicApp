@@ -18,14 +18,11 @@ protocol DetaillPresenterProtocol {
 final class DetaillPresenter {
     
     unowned var view: DetaillViewControllerProtocol!
-    let router: DetaillRouterProtocol!
     
     init(
-        view: DetaillViewControllerProtocol,
-        router: DetaillRouterProtocol
+        view: DetaillViewControllerProtocol
     ) {
         self.view = view
-        self.router = router
     }
 }
 
@@ -39,8 +36,8 @@ extension DetaillPresenter: DetaillPresenterProtocol {
     }
     
     func playAudio() {
-        guard let music = view.getSource() else { return }
-        guard let previewURLString = music.previewUrl,
+        guard let music = view.getSource(),
+              let previewURLString = music.previewUrl,
               let previewURL = URL(string: previewURLString) else {
             return
         }
@@ -50,12 +47,11 @@ extension DetaillPresenter: DetaillPresenterProtocol {
         if audioManager.isPlaying  {
             audioManager.stop()
         } else {
-            audioManager.play(url: previewURL, songName: music.trackName ?? "")
+            audioManager.play(url: previewURL, songName: music.trackName ?? "") // ternery
         }
     }
     
     func viewDidLoad() {
-        
         guard let music = view.getSource() else { return }
         
         view.setTrackName(music.trackName ?? "")

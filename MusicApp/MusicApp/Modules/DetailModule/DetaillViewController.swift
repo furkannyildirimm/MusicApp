@@ -20,23 +20,23 @@ protocol DetaillViewControllerProtocol: AnyObject {
     func playAudio()
 }
 
-class DetaillViewController: BaseViewController {
+final class DetaillViewController: BaseViewController {
     
     var presenter: DetaillPresenterProtocol!
     var source: Music?
     var isMusicSaved: Bool = false
     
-    @IBOutlet weak var musicImage: UIImageView!
-    @IBOutlet weak var artistName: UILabel!
-    @IBOutlet weak var collectionName: UILabel!
-    @IBOutlet weak var trackName: UILabel!
-    @IBOutlet weak var primaryName: UILabel!
-    @IBOutlet weak var trackPrice: UILabel!
-    @IBOutlet weak var collectionPrice: UILabel!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var cardViewTwo: CardView!
-    @IBOutlet weak var cardView: CardView!
+    @IBOutlet private weak var musicImage: UIImageView!
+    @IBOutlet private weak var artistName: UILabel!
+    @IBOutlet private weak var collectionName: UILabel!
+    @IBOutlet private weak var trackName: UILabel!
+    @IBOutlet private weak var primaryName: UILabel!
+    @IBOutlet private weak var trackPrice: UILabel!
+    @IBOutlet private weak var collectionPrice: UILabel!
+    @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var cardViewTwo: CardView!
+    @IBOutlet private weak var cardView: CardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class DetaillViewController: BaseViewController {
         saveButton.setImage(heartImage, for: .normal)
     }
     
-    @IBAction func playButton(_ sender: Any) {
+    @IBAction private func playButton(_ sender: Any) {
         presenter.playAudio()
         playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonDetail" : "playButtonDetail"), for: .normal)
     }
@@ -68,7 +68,7 @@ class DetaillViewController: BaseViewController {
         navigationItem.leftBarButtonItem = backButtonItem
     }
     
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    @IBAction private func saveButtonTapped(_ sender: Any) {
         
         let isMusicSaved = CoreDataManager.shared.checkIfMusicExists(music: createMusicDetails())
         if isMusicSaved {

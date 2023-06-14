@@ -12,14 +12,12 @@ import AVFoundation
 protocol MusicCellPresenterProtocol: AnyObject {
     func load()
     func playButtonTapped()
-    
 }
 
 final class MusicCellPresenter {
     
     weak var view: MusicCellProtocol?
     private let music: Music
-    
     
     init(
         view: MusicCellProtocol?,
@@ -28,12 +26,10 @@ final class MusicCellPresenter {
         self.view = view
         self.music = music
     }
-    
 }
 
 extension MusicCellPresenter: MusicCellPresenterProtocol {
     func load() {
-        
         view?.setTitle(music.trackName ?? "")
         view?.setArtist(music.artistName ?? "")
         view?.setCollection(music.collectionName ?? "")
@@ -42,7 +38,6 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
             view?.setImage(imageURL)
         }
     }
-    
     
     func playButtonTapped() {
         guard let previewURLString = music.previewUrl,
@@ -58,6 +53,5 @@ extension MusicCellPresenter: MusicCellPresenterProtocol {
             audioManager.play(url: previewURL, songName: "\(music.trackId ?? 0)")
             view?.cellReloadData()
         }
-        
     }
 }

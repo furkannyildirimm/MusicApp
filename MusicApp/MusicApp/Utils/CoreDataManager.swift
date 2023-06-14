@@ -23,7 +23,7 @@ struct MusicDetails {
     var trackId: Int
 }
 
-class CoreDataManager: CoreDataManagerProtocol {
+final class CoreDataManager: CoreDataManagerProtocol {
     static let shared = CoreDataManager()
     var isMusicSaved: Bool = false
     
@@ -74,6 +74,7 @@ class CoreDataManager: CoreDataManagerProtocol {
             print("Müzik silinemedi: \(error)")
         }
     }
+    
     func checkIfMusicExists(music: MusicDetails) -> Bool {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<MusicEntity> = MusicEntity.fetchRequest()

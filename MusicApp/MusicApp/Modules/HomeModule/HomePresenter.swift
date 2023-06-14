@@ -45,6 +45,7 @@ extension HomePresenter: HomePresenterProtocol {
     func clearSearchResults() {
         music = []
         view.reloadData()
+        AudioManager.shared.stop()
     }
     
     func searchMusic(with keyword: String) {
@@ -61,7 +62,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func music(_ index: Int) -> Music? {
-        return music[safe: index]
+        music[safe: index]
     }
     
     func didSelectRowAt(index: Int) {

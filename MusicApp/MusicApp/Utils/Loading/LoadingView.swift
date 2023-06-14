@@ -7,16 +7,16 @@
 
 import UIKit
 
-class LoadingView {
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+final class LoadingView {
+    private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     static let shared = LoadingView()
-    var blurView: UIVisualEffectView = UIVisualEffectView()
+    private var blurView: UIVisualEffectView = UIVisualEffectView()
 
     private init() {
         configure()
     }
 
-    func configure() {
+    private func configure() {
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.frame = UIWindow(frame: UIScreen.main.bounds).frame 

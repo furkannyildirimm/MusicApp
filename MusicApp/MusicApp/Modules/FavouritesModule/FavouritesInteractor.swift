@@ -25,7 +25,7 @@ final class FavouritesInteractor: FavouritesInteractorProtocol {
         self.dataManager = dataManager
     }
     
-    func fetchMusicItems()  {
+    func fetchMusicItems() {
         musicmodel = []
         
         for result in dataManager.fetchMusic() {

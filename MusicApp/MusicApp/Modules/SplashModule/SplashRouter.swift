@@ -16,7 +16,6 @@ protocol SplashRouterProtocol: AnyObject {
     func navigate(_ route: SplashRoutes)
 }
 
-
 final class SplashRouter {
     
     weak var viewController: SplashViewController?

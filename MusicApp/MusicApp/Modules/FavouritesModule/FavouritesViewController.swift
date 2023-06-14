@@ -11,9 +11,9 @@ protocol FavouritesView: AnyObject {
     func updateTableView()
 }
 
-final class FavouritesViewController: BaseViewController, FavouritesView {
+final class FavouritesViewController: BaseViewController {
     
-    @IBOutlet weak var favouritesTableView: UITableView!
+    @IBOutlet private weak var favouritesTableView: UITableView!
     private var emptyStateImageView: UIImageView!
     var presenter: FavouritesPresenterProtocol?
     
@@ -31,11 +31,6 @@ final class FavouritesViewController: BaseViewController, FavouritesView {
         navigationItem.leftBarButtonItem = backButtonItem
     }
     
-    func updateTableView() {
-        favouritesTableView.reloadData()
-        checkEmptyState()
-    }
-    
     private func emptyView(){
         emptyStateImageView = UIImageView(emptyStateImage: UIImage(named: "emptyView")!)
         emptyStateImageView.showEmptyState(in: view)
@@ -44,7 +39,7 @@ final class FavouritesViewController: BaseViewController, FavouritesView {
         checkEmptyState()
     }
     
-    func checkEmptyState() {
+   private func checkEmptyState() {
         let isEmpty = presenter?.numberOfMusicItems() == 0
         favouritesTableView.separatorStyle = isEmpty ? .none : .none
         
@@ -53,6 +48,14 @@ final class FavouritesViewController: BaseViewController, FavouritesView {
         } else {
             emptyStateImageView.hideEmptyState()
         }
+    }
+}
+
+extension FavouritesViewController: FavouritesView {
+    
+    func updateTableView() {
+        favouritesTableView.reloadData()
+        checkEmptyState()
     }
 }
 

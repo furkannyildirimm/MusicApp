@@ -16,17 +16,16 @@ protocol FavouritesPresenterProtocol {
 
 final class FavouritesPresenter: FavouritesPresenterProtocol {
     
+    var musicItems: [MusicDetails] = []
     weak var view: FavouritesView?
     var interactor: FavouritesInteractorProtocol
-    var router: FavouritesRouterProtocol
     
-    init(view: FavouritesView, interactor: FavouritesInteractorProtocol, router: FavouritesRouterProtocol) {
+    
+    init(view: FavouritesView, interactor: FavouritesInteractorProtocol) {
         self.view = view
         self.interactor = interactor
-        self.router = router
+        
     }
-    
-    var musicItems: [MusicDetails] = []
     
     func viewDidLoad() {
         interactor.fetchMusicItems()
@@ -37,7 +36,6 @@ final class FavouritesPresenter: FavouritesPresenterProtocol {
     }
     
     func musicItem(at index: Int) -> MusicDetails? {
-        
         guard index >= 0 && index < musicItems.count else {
             return nil
         }

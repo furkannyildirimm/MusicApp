@@ -17,8 +17,8 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 final class HomeViewController: BaseViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
     
     var presenter: HomePresenterProtocol!
     
@@ -36,7 +36,7 @@ final class HomeViewController: BaseViewController {
         hiddenKeyboard()
     }
     
-    func hiddenKeyboard(){
+    private func hiddenKeyboard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
@@ -62,7 +62,7 @@ final class HomeViewController: BaseViewController {
         presenter.navigateToFavourites()
     }
     
-    private func emptyView(){
+    private func emptyView() {
         emptyStateImageView = UIImageView(emptyStateImage: UIImage(named: "emptyView")!)
         emptyStateImageView.showEmptyState(in: view)
         tableView.separatorStyle = .none

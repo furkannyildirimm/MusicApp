@@ -23,11 +23,11 @@ protocol MusicCellProtocol: AnyObject {
 
 final class MusicTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var musicImage: UIImageView!
-    @IBOutlet weak var musicTitle: UILabel!
-    @IBOutlet weak var artistTitle: UILabel!
-    @IBOutlet weak var collectionTitle: UILabel!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet private weak var musicImage: UIImageView!
+    @IBOutlet private weak var musicTitle: UILabel!
+    @IBOutlet private weak var artistTitle: UILabel!
+    @IBOutlet private weak var collectionTitle: UILabel!
+    @IBOutlet private weak var playButton: UIButton!
     
     var cellPresenter: MusicCellPresenterProtocol! {
         didSet {
@@ -44,7 +44,7 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
     
-    func configureImage(_ trackId: Int){
+    func configureImage(_ trackId: Int) {
         if AudioManager.shared.isPlaying && AudioManager.shared.songName == "\(trackId)"{
             playButton.setImage(UIImage(named:"pauseButtonCell"), for: .normal)
         } else {
@@ -52,7 +52,7 @@ final class MusicTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func playButtonTapped(_ sender: Any) {
+    @IBAction private func playButtonTapped(_ sender: Any) {
         cellPresenter.playButtonTapped()
         playButton.setImage(UIImage(named:AudioManager.shared.isPlaying ? "pauseButtonCell" : "playButtonCell"), for: .normal)
     }
@@ -72,8 +72,6 @@ extension MusicTableViewCell: MusicCellProtocol {
         delegate?.cellReloadData()
     }
     
-    
-    
     func setImage(_ url: URL) {
         DispatchQueue.main.async {
             self.musicImage.sd_setImage(with: url, completed: nil)
@@ -91,6 +89,5 @@ extension MusicTableViewCell: MusicCellProtocol {
     func setCollection(_ text: String) {
         collectionTitle.text = text
     }
-    
 }
 

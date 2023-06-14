@@ -5,8 +5,6 @@
 //  Created by STARK on 12.06.2023.
 //
 
-
-
 import UIKit
 
 extension UIImage {
