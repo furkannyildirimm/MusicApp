@@ -18,7 +18,7 @@ final class MusicAppUITests: XCTestCase {
         app.launchArguments.append("---UITest---")
     }
     
-    func search(){
+    private func search(){
         app.launch()
         app.searchFields["Search Artist, Song..."].tap()
         
@@ -50,7 +50,7 @@ final class MusicAppUITests: XCTestCase {
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Beni Çok Sev"]/*[[".cells.staticTexts[\"Beni Çok Sev\"]",".staticTexts[\"Beni Çok Sev\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
     
-    func loveTapped(){
+    private func loveTapped(){
         let loveButton = app.buttons["love"]
         loveButton.tap()
     }

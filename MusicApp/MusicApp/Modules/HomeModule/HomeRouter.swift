@@ -36,7 +36,7 @@ final class HomeRouter: HomeRouterProtocol {
         switch route {
         case .detail(let source):
             let detailVC = DetaillRouter.createModule()
-            detailVC.source = source
+            detailVC.presenter.source = source
             viewController?.navigationController?.pushViewController(detailVC, animated: true)
         case .favourites:
             let favouritesVC = FavouritesRouter.createModule()

@@ -5,7 +5,7 @@
 //  Created by STARK on 8.06.2023.
 //
 
-import UIKit
+import Foundation
 import MusicAPI
 
 protocol DetaillPresenterProtocol {
@@ -13,11 +13,13 @@ protocol DetaillPresenterProtocol {
     func playAudio()
     func saveMusicDetails(music: MusicDetails)
     func deleteMusicDetails(music: MusicDetails)
+    var source: Music? { get set }
 }
 
 final class DetaillPresenter {
     
     unowned var view: DetaillViewControllerProtocol!
+    var source: Music?
     
     init(
         view: DetaillViewControllerProtocol
@@ -36,7 +38,7 @@ extension DetaillPresenter: DetaillPresenterProtocol {
     }
     
     func playAudio() {
-        guard let music = view.getSource(),
+        guard let music = source,
               let previewURLString = music.previewUrl,
               let previewURL = URL(string: previewURLString) else {
             return
@@ -52,7 +54,7 @@ extension DetaillPresenter: DetaillPresenterProtocol {
     }
     
     func viewDidLoad() {
-        guard let music = view.getSource() else { return }
+        guard let music = source else { return }
         
         view.setTrackName(music.trackName ?? "")
         view.setArtistName(music.artistName ?? "")

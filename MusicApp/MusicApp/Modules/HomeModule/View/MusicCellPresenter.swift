@@ -5,7 +5,7 @@
 //  Created by STARK on 7.06.2023.
 //
 
-import UIKit
+import Foundation
 import MusicAPI
 import AVFoundation
 

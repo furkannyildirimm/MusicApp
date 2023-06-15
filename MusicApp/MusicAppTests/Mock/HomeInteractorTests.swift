@@ -6,6 +6,8 @@
 //
 
 import XCTest
+@testable import MusicApp
+import MusicAPI
 
 final class HomeInteractorTests: XCTestCase {
     
@@ -13,7 +15,7 @@ final class HomeInteractorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mockInteractor = MockHomeInteractor()
+        mockInteractor = .init()
     }
     
     override func tearDown() {

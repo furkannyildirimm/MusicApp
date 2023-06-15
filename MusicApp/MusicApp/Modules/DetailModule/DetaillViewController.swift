@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MusicAPI
 
 protocol DetaillViewControllerProtocol: AnyObject {
     func setArtistName(_ text: String)
@@ -16,14 +15,12 @@ protocol DetaillViewControllerProtocol: AnyObject {
     func setTrackPrice(_ num: Double)
     func setCollectionPrice(_ num: Double)
     func setMusicImage(_ url: URL)
-    func getSource() -> Music?
     func playAudio()
 }
 
 final class DetaillViewController: BaseViewController {
     
     var presenter: DetaillPresenterProtocol!
-    var source: Music?
     var isMusicSaved: Bool = false
     
     @IBOutlet private weak var musicImage: UIImageView!
@@ -93,8 +90,8 @@ final class DetaillViewController: BaseViewController {
             artistName: artistName.text ?? "",
             collectionName: collectionName.text ?? "",
             trackName: trackName.text ?? "",
-            artworkUrl100: source?.artworkUrl100 ?? "",
-            trackId: source?.trackId ?? 0
+            artworkUrl100: presenter.source?.artworkUrl100 ?? "",
+            trackId: presenter.source?.trackId ?? 0
         )
     }
     
@@ -148,10 +145,6 @@ extension DetaillViewController: DetaillViewControllerProtocol {
             self.cardViewTwo.backgroundColor = color
             self.updateTextColorsBasedOnBackground(color)
         }
-    }
-    
-    func getSource() -> Music? {
-        return source
     }
 }
 
