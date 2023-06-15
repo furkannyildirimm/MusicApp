@@ -12,12 +12,11 @@ final class MockHomeRouter: HomeRouterProtocol {
     
     var isInvokedNavigate = false
     var invokedNavigateCount = 0
-    var invokedNavigateParameters: HomeRoutes?
+    var invokedNavigateParameters: (route: HomeRoutes, Void)?
 
-    
     func navigate(_ route: MusicApp.HomeRoutes) {
         isInvokedNavigate = true
         invokedNavigateCount += 1
-        invokedNavigateParameters = route
+        invokedNavigateParameters = (route, ())
     }
 }

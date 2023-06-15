@@ -25,15 +25,34 @@ class RouterTests: XCTestCase {
     }
     
     func testNavigateToDetail() {
-        XCTAssertFalse(mockRouter.isInvokedNavigate)
-        XCTAssertEqual(mockRouter.invokedNavigateCount, 0)
-        //XCTAssertNil(mockRouter.invokedNavigateParameters)
         
-        let route: HomeRoutes = .favourites
-        mockRouter.navigate(route)
+        let router = MockHomeRouter()
+        XCTAssertFalse(router.isInvokedNavigate)
+        XCTAssertEqual(router.invokedNavigateCount, 0)
         
-        XCTAssertTrue(mockRouter.isInvokedNavigate)
-        XCTAssertEqual(mockRouter.invokedNavigateCount, 1)
-        //XCTAssertEqual(mockRouter.invokedNavigateParameters?.route, route)
+        router.navigate(.detail(source: nil))
+        
+        XCTAssertTrue(router.isInvokedNavigate)
+        XCTAssertEqual(router.invokedNavigateCount, 1)
+        if case .detail = router.invokedNavigateParameters?.route {
+        } else {
+            XCTFail("Route is not .detail")
+        }
+    }
+    
+    func testNavigateToFavourite() {
+        
+        let router = MockHomeRouter()
+        XCTAssertFalse(router.isInvokedNavigate)
+        XCTAssertEqual(router.invokedNavigateCount, 0)
+        
+        router.navigate(.favourites)
+        
+        XCTAssertTrue(router.isInvokedNavigate)
+        XCTAssertEqual(router.invokedNavigateCount, 1)
+        if case .favourites = router.invokedNavigateParameters?.route {
+        } else {
+            XCTFail("Route is not .favourites")
+        }
     }
 }

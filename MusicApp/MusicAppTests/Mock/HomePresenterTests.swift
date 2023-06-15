@@ -36,16 +36,19 @@ final class HomePresenterTests: XCTestCase {
         
         XCTAssertFalse(view.isInvokedSetupTableView)
         XCTAssertEqual(view.invokedSetupTableViewCount, 0)
-    
+        XCTAssertNil(interactor.invokedSearchKey)
+        XCTAssertEqual(interactor.inkovedFetchMusicCount, 0)
+        
+        let keyword = "acdc"
+        interactor.fetchMusic(with: keyword)
         presenter.viewDidLoad()
-    
         XCTAssertTrue(view.isInvokedSetupTableView)
         XCTAssertEqual(view.invokedSetupTableViewCount, 1)
-
+        XCTAssertEqual(interactor.invokedSearchKey?.keyword, keyword)
+        XCTAssertEqual(interactor.inkovedFetchMusicCount, 1)
     }
     
     func test_SearchMusic() {
-        
         
         XCTAssertFalse(view.isInvokedShowLoading)
         XCTAssertFalse(interactor.fetchMusicCalled)
