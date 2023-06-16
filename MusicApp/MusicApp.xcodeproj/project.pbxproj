@@ -14,6 +14,8 @@
 		581FED472A31E5B200D8B857 /* DetaillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581FED452A31E5B200D8B857 /* DetaillViewController.xib */; };
 		581FED492A334B1500D8B857 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED482A334B1500D8B857 /* AudioManager.swift */; };
 		581FED4B2A33CBB800D8B857 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */; };
+		582A8CF72A3C9EEC007C05E2 /* MockMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582A8CF62A3C9EEC007C05E2 /* MockMusicCell.swift */; };
+		582A8CF92A3CA173007C05E2 /* MusicCellPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582A8CF82A3CA173007C05E2 /* MusicCellPresenterTest.swift */; };
 		5839E5122A3650B00011C71F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5112A3650B00011C71F /* CoreDataManager.swift */; };
 		5839E5162A36520B0011C71F /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839E5142A36520B0011C71F /* FavouriteCell.swift */; };
 		5839E5172A36520B0011C71F /* FavouriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5839E5152A36520B0011C71F /* FavouriteCell.xib */; };
@@ -93,6 +95,8 @@
 		581FED452A31E5B200D8B857 /* DetaillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetaillViewController.xib; sourceTree = "<group>"; };
 		581FED482A334B1500D8B857 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		581FED4A2A33CBB800D8B857 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		582A8CF62A3C9EEC007C05E2 /* MockMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMusicCell.swift; sourceTree = "<group>"; };
+		582A8CF82A3CA173007C05E2 /* MusicCellPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellPresenterTest.swift; sourceTree = "<group>"; };
 		5839E5112A3650B00011C71F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5839E5142A36520B0011C71F /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		5839E5152A36520B0011C71F /* FavouriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteCell.xib; sourceTree = "<group>"; };
@@ -187,6 +191,15 @@
 				581FED422A31E16500D8B857 /* DetailRouter.swift */,
 			);
 			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		582A8CF52A3C9ECF007C05E2 /* MusicCellTest */ = {
+			isa = PBXGroup;
+			children = (
+				582A8CF62A3C9EEC007C05E2 /* MockMusicCell.swift */,
+				582A8CF82A3CA173007C05E2 /* MusicCellPresenterTest.swift */,
+			);
+			path = MusicCellTest;
 			sourceTree = "<group>";
 		};
 		5839E5132A3651E30011C71F /* FavouritesModule */ = {
@@ -384,6 +397,7 @@
 		58D4383B2A38D3200054B738 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				582A8CF52A3C9ECF007C05E2 /* MusicCellTest */,
 				589D573E2A38E3A000727D18 /* HomePresenterTests.swift */,
 				589D57402A38E91200727D18 /* MockHomeInteractor.swift */,
 				58727D9E2A3A7BCB00BB36B2 /* HomeInteractorTests.swift */,
@@ -590,6 +604,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				589D57372A38E10200727D18 /* MockHomeViewController.swift in Sources */,
+				582A8CF72A3C9EEC007C05E2 /* MockMusicCell.swift in Sources */,
+				582A8CF92A3CA173007C05E2 /* MusicCellPresenterTest.swift in Sources */,
 				58C7E3322A2F405E005C41B1 /* MusicAppTests.swift in Sources */,
 				589D57412A38E91200727D18 /* MockHomeInteractor.swift in Sources */,
 				58727D9F2A3A7BCB00BB36B2 /* HomeInteractorTests.swift in Sources */,
