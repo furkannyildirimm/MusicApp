@@ -38,7 +38,7 @@ Here is a brief description of the VIPER components:
 
 ## Screenshot
 
-Iphone 14 Pro            | Iphone 14 Pro Max          
+Iphone 14 Pro            | Iphone 14 Pro           
 :-------------------------:|:-------------------------:
 ![](https://github.com/furkannyildirimm/FurkanYildirim_HW4/blob/main/GIFs/1.gif)  |  ![](https://github.com/furkannyildirimm/FurkanYildirim_HW4/blob/main/GIFs/2.gif) 
 
