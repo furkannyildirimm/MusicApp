@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
-import AVFoundation
 
 protocol MusicCellDelegate: AnyObject {
     func cellReloadData()

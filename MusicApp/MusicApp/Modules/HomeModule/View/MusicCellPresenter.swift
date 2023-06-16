@@ -7,7 +7,6 @@
 
 import Foundation
 import MusicAPI
-import AVFoundation
 
 protocol MusicCellPresenterProtocol: AnyObject {
     func load()
