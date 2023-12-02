@@ -40,7 +40,7 @@ Here is a brief description of the VIPER components:
 
 - VIPER promotes modularity, testability, and easier maintenance of the software. With each component having distinct responsibilities, making changes becomes localized and doesn't affect other components.
 
-- VIPER is particularly useful in the development of large and complex applications, as it helps maintain a well-structured and manageable codebase. However, it may introduce unnecessary complexity in smaller-scale applications, so it is not necessary to use VIPER in every project.
+- VIPER is particularly useful in the development of large and complex applications, as it helps maintain a well-structured and manageable codebase. However, it may introduce unnecessary complexity in smaller-scale applications, so it is not necessary to use VIPER in every project..
 
 ## Requirements
 
